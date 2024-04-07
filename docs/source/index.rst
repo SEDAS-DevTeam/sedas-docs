@@ -1,22 +1,31 @@
-Welcome to Lumache's documentation!
+Welcome to SEDAS documentation!
 ===================================
 
-**Lumache** (/lu'make/) is a Python library for cooks and food lovers
-that creates recipes mixing random ingredients.
-It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
-and offers a *simple* and *intuitive* API.
+Table of Contents
+--------
 
-Check out the :doc:`usage` section for further information, including
-how to :ref:`installation` the project.
+.. toctree::
+
+   installation
+   windows
+   neural-networks
+
+About
+--------
+
+This project is new concept of ATC simulator both for beginners and advanced users. 
+It utilises of neural networks to imitate real pilots on the other communication end and also function as a personal trainer. 
+Goal of this desktop application is to make ATC learning easier for hobbyists and begineer ATC students.
 
 .. note::
 
    This project is under active development.
 
-Contents
+Technical
 --------
 
-.. toctree::
+Application is made in ``electron``, with the help of ``sqlite3``, app also uses ``python`` to implement the **AI** part. It is also packaged using ``electron-packager``. 
+Frontend is fully made in ``VanillaJS``. 
 
-   usage
-   api
+Functionalities
+--------
