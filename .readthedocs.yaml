@@ -12,6 +12,4 @@ python:
 sphinx:
   configuration: docs/source/conf.py
 
-  formats:
-  - epub
-  - pdf
+  formats: all
