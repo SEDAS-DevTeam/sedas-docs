@@ -1,5 +1,5 @@
 Windows and their functionalities
 ===================================
 
-.. autosummary::
-   :toctree: generated
+.. toctree::
+    :maxdepth: 2

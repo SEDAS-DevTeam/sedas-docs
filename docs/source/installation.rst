@@ -1,8 +1,8 @@
 App installation
 ===================================
 
-.. autosummary::
-   :toctree: generated
+.. toctree::
+    :maxdepth: 2
 
 Main menu
 --------
