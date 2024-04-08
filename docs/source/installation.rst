@@ -4,11 +4,11 @@ App installation
 .. autosummary::
    :toctree: generated
 
-    Main menu
-    --------
+Main menu
+--------
 
-    Settings
-    --------
+Settings
+--------
 
-    Controller window
-    --------
+Controller window
+--------
