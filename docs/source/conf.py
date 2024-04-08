@@ -2,7 +2,7 @@
 
 # -- Project information
 
-project = 'Lumache'
+project = 'sedas docs'
 copyright = '2024, SEDAS'
 author = 'SEDAS'
 
