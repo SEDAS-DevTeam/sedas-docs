@@ -1,5 +1,14 @@
 Windows and their functionalities
 ===================================
 
-.. toctree::
-    :maxdepth: 2
+Types of windows
+********
+
+Main menu
+--------
+
+Settings
+--------
+
+Controller window
+--------
