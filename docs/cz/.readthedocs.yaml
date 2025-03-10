@@ -8,9 +8,9 @@ build:
 
 python:
   install:
-    - requirements: docs/requirements.txt
+    - requirements: docs/cz/requirements.txt
 
 sphinx:
-  configuration: docs/source/conf.py
+  configuration: docs/cz/source/conf.py
 
 formats: all
