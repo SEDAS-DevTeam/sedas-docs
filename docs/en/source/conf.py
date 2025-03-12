@@ -3,8 +3,8 @@
 # -- Project information
 
 project = 'sedas docs'
-copyright = '2024, SEDAS'
-author = 'SEDAS'
+copyright = '2024, Daniel Pojhan'
+author = 'Daniel Pojhan'
 
 release = '0.1'
 version = '0.1.0'

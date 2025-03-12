@@ -29,19 +29,19 @@ Building locally
 Windows
 -----------------------
 
-.. todo::
+.. note::
     Project is not built yet
 
 Linux
 -----------------------
 
-.. todo::
+.. note::
     Project is not built yet
 
 MacOS
 -----------------------
 
-.. todo::
+.. note::
     Project is not built yet
 
 .. _Windows:
