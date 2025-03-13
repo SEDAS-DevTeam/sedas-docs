@@ -62,8 +62,11 @@ to different parts of the app.
 
 * **Start** - This button activates SEDAS backend and other modules, and also alongside with that initializes all the windows that are going to
 be used (`Controller window`, `Worker windows` (1 .. N - 1), N - defines number monitors connected)
+
 * **Settings** - Redirects user to the settings window
+
 * **Reload last session** - Because app has the periodical backup save functionality, user has the ability to recover last session from the last backup that is available.
+
 
 .. note::
     **Reload button is greyed out for now**, the last session recovery is not yet implemented.
