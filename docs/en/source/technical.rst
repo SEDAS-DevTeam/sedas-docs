@@ -7,9 +7,8 @@ communication between main app and AI module. This page will try to explain all 
 
 .. list-table:: List of used technologies
     :widths: 30 70
-
-    * - Used tech
-      - 
+    * - **Used tech**
+      - **Explanation**
     * - **App**
       -
     * - `ElectronJS`
@@ -23,15 +22,19 @@ communication between main app and AI module. This page will try to explain all 
     * - **AI module**
       -
     * - `Whisper`
-      - **ASR**
+      - ASR *
     * - `Rule-based NLP`
-      - **NLP**
+      - NLP *
     * - `VITS`
-      - **TTS**
+      - TTS *
     * - `Whisper.cpp`
       - Inference for Whisper model
     * - `PiperTTS`
       - Inference for VITS model
+
+\* **ASR** - Automatic Speech Recognition
+\* **NLP** - Natural Language Processing
+\* **TTS** - Text To Speech synthesis
 
 .. note::
     **Rework all the image resources to english**
@@ -41,7 +44,27 @@ App schematic
 
 .. image:: imgs/schema/backend_structure.png
 
-Neural networks part
+App itself is divided into several modules, that are connected together using several communication mechanismus (See below):
+
+* **IPC** (**I**nter **P**rocess **C**ommunication) - A protocol for the communication between frontend and backend.
+This is a very important communication mechanism, because it allows app to send signals to backend when they are triggered in user GUI and vice versa.
+* **Worker threads** - This allows app to utilize its nonblocking architecture. These are primarily implemented in simulation time management, backup saving.
+Primarily this is used in methods, that could potentialy take a lot of time and block the app from responding properly.
+* **MSC** (**M**odule **S**ocket **C**ommunication) - A protocol that is implemented in the communication between app modules and main backend. Most of the modules are written in C++
+and are programmed to be running independently. The motivation to make modules behave like this, was to make module testing easier (`CMake` configurations + `invoke` library) and also allowing app to run
+smoothly without the module blocking.
+
+Neural networks
 ===================================
 
 .. image:: imgs/schema/ai_module_structure.png
+
+AI module is structured accordingly. We have to **PTT** (**P**ush **T**o **T**alk) signal, that is invoked on the ATCo GUI. This signals the start of the ATCo
+voice recording. Using another **PTT** signal, we stop the voice from recording, which is then converted to `Wavefile` format that is then sent to the ASR model (Whisper).
+The raw transcription is then programmaticaly processed (getting rid of timestamps, etc.) and then sent to the Rule-based NLP mechanism. This mechanism separated `callsign`, `command` and `value` from the transcription.
+We then check the `callsign` with the pseudopilot database (i. e. if specific pseudopilot exists). If yes, whe then send a signal change to the plane database to set new heading according to `command` and `value`.
+After that, pseudopilot generates a response that is then sent to TTS model that generates a wavefile. That wavefile is then played using the system player.
+
+.. note::
+  **System currently supports only the Pipewire audio system**. Unfortunately, porting to generic audio system that could be cross platform is still in development.
+  `Github issue <https://github.com/SEDAS-DevTeam/SEDAS-AI-backend/issues/5>`_.
