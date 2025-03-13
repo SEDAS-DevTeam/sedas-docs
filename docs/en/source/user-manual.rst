@@ -51,14 +51,37 @@ Windows and their functionalities
 Types of windows
 -----------------------
 
+Currently, these types of windows are utilized:
+
+.. _Main menu:
 Main menu
-~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^
 
+.. _Settings:
 Settings
-~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^
 
+.. _Controller:
 Controller window
-~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Controller Setup
+""""""""""""""""""
+
+Controller Simulation
+""""""""""""""""""
+
+Controller Wiki
+""""""""""""""""""
+
+Controller Monitors
+""""""""""""""""""
+
+Controller Plugins
+""""""""""""""""""
+
+.. note::
+    **The plugin GUI is not done yet**, project needs some reworking of the plugin implementations.
 
 .. _App settings:
 App settings
