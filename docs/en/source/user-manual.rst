@@ -29,7 +29,7 @@ Building locally
 Setting up repository
 """"""""""""""
 
-.. code:: shell
+.. code-block:: shell
     git clone --recursive https://github.com/SEDAS-DevTeam/SEDAS-manager.git
     cd SEDAS-manager
 
@@ -39,7 +39,7 @@ Setting up virtual environment
 I recommend using `virtualenv` for setting up project helper (for managing building, compiling, etc.), but if you are more familiar with `conda`, there is no problem of using that.
 All the project helper dependencies are in `requirements.txt`
 
-.. code:: shell
+.. code-block:: shell
     virtualenv sedas_manager_env
     source sedas_manager_env/bin/activate # To activate venv, use "deactivate" for deactivation
     pip install -r requirements.txt
@@ -48,19 +48,19 @@ All the project helper dependencies are in `requirements.txt`
 Install npm dependencies
 """"""""""""""
 
-.. code:: shell
+.. code-block:: shell
     npm install
 
 Compile C++, TS and node-addon-api files
 """"""""""""""
 
-.. code:: shell
+.. code-block:: shell
     invoke compile
 
 Run app in development mode
 """"""""""""""
 
-.. code:: shell
+.. code-block:: shell
     invoke devel
 
 Everything should be set up for now :).
@@ -72,7 +72,7 @@ Building and publishing
     **These methods arent set up yet**, but will be worked on in the future, because they are quite crucial for the app development.
     Commands down here are mostly placeholders, so please, do not **USE THEM YET**.
 
-.. code:: shell
+.. code-block:: shell
     invoke build # executes app build
     invoke publish # executes app publish to github
 
