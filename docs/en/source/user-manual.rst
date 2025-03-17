@@ -156,25 +156,29 @@ Controller window
 
 This is the most important window in the whole app. It categorizes user actions into multiple tabs (Setup, Simulation, Wiki, Monitors, Plugins) that are explained below.
 
-.. image:: imgs/pic/controller_setup.png
+.. figure:: imgs/pic/controller_setup.png
+
     Controller Setup tab
 
 .. note::
     **Add tab description**
 
-.. image:: imgs/pic/controller_sim.png
+.. figure:: imgs/pic/controller_sim.png
+
     Controller Simulation tab
 
 .. note::
     **Add tab description**
 
-.. image:: imgs/pic/wiki.png
+.. figure:: imgs/pic/wiki.png
+
     Controller Wiki tab
 
 .. note::
     **Add tab description**
 
-.. image:: imgs/pic/monitors.png
+.. figure:: imgs/pic/monitors.png
+    
     Controller Monitors tab
 
 .. note::
