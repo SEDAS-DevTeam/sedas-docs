@@ -2,10 +2,16 @@
 Technical background
 ===================
 
+:orphan:
 Table of contents
 ===================================
+#. :ref:`Technologies`
 #. :ref:`Schematic`
 #. :ref:`Neural networks`
+
+.. _Technologies:
+Used technologies
+============
 
 Application itself uses a lot of technologies to implement many of its parts. For example it utilises localhost sockets communication for the communication between main app and AI module. This page will try to explain all the technical approaches that were used in the development.
 

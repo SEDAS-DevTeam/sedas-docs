@@ -6,6 +6,7 @@ This manual depicts all the user interaction with the
 desktop app itself. Manual consists of **App installation**, **Types of windows** and all their functionalities
 and **App settings** (types of settings and their effects on the application runtime)
 
+:orphan:
 Table of contents
 ===================================
 #. :ref:`App installation`
