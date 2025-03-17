@@ -2,6 +2,11 @@
 Technical background
 ===================
 
+Table of contents
+===================================
+#. :ref:`Schematic`
+#. :ref:`Neural networks`
+
 Application itself uses a lot of technologies to implement many of its parts. For example it utilises localhost sockets communication for the communication between main app and AI module. This page will try to explain all the technical approaches that were used in the development.
 
 .. list-table:: List of used technologies
@@ -33,12 +38,15 @@ Application itself uses a lot of technologies to implement many of its parts. Fo
      - Inference for VITS model
 
 \* **ASR** - Automatic Speech Recognition
+
 \* **NLP** - Natural Language Processing
+
 \* **TTS** - Text To Speech synthesis
 
 .. note::
    **Rework all the image resources to english**
 
+.. _Schematic:
 App schematic
 ============
 
@@ -46,14 +54,13 @@ App schematic
 
 App itself is divided into several modules, that are connected together using several communication mechanismus (See below):
 
-* **IPC** (**I**\ nter **P**\ rocess **C**\ ommunication) - A protocol for the communication between frontend and backend.
-
-This is a very important communication mechanism, because it allows app to send signals to backend when they are triggered in user GUI and vice versa.
+* **IPC** (**I**\ nter **P**\ rocess **C**\ ommunication) - A protocol for the communication between frontend and backend. This is a very important communication mechanism, because it allows app to send signals to backend when they are triggered in user GUI and vice versa.
 
 * **Worker threads** - This allows app to utilize its nonblocking architecture. These are primarily implemented in simulation time management, backup saving. Primarily this is used in methods, that could potentialy take a lot of time and block the app from responding properly.
 
 * **MSC** (**M**\ odule **S**\ ocket **C**\ ommunication) - A protocol that is implemented in the communication between app modules and main backend. Most of the modules are written in C++ and are programmed to be running independently. The motivation to make modules behave like this, was to make module testing easier (``CMake`` configurations + ``invoke`` library) and also allowing app to run smoothly without the module blocking.
 
+.. _Neural networks:
 Neural networks
 =============
 

@@ -9,7 +9,13 @@ and **App settings** (types of settings and their effects on the application run
 Table of contents
 ===================================
 #. :ref:`App installation`
+    #. :ref:`Build locally`
+    #. :ref:`Prebuilt`
 #. :ref:`Windows`
+    #. :ref:`Main menu`
+    #. :ref:`Settings`
+    #. :ref:`Controller`
+    #. :ref:`Worker`
 
 .. _App installation:
 App installataion
@@ -20,6 +26,7 @@ App installataion
    **Currently, project does not have any builds**, the main desktop app is now in early development and many features are not done yet.
    However, you'll soon be able to see releases at `SEDAS github Releases <https://github.com/SEDAS-DevTeam/SEDAS-manager/releases>`_.
 
+.. _Build locally:
 Building locally
 -----------------------
 
@@ -30,6 +37,7 @@ Setting up repository
 """"""""""""""
 
 .. code-block:: shell
+
     git clone --recursive https://github.com/SEDAS-DevTeam/SEDAS-manager.git
     cd SEDAS-manager
 
@@ -40,6 +48,7 @@ I recommend using `virtualenv` for setting up project helper (for managing build
 All the project helper dependencies are in `requirements.txt`
 
 .. code-block:: shell
+
     virtualenv sedas_manager_env
     source sedas_manager_env/bin/activate # To activate venv, use "deactivate" for deactivation
     pip install -r requirements.txt
@@ -49,18 +58,21 @@ Install npm dependencies
 """"""""""""""
 
 .. code-block:: shell
+
     npm install
 
 Compile C++, TS and node-addon-api files
 """"""""""""""
 
 .. code-block:: shell
+
     invoke compile
 
 Run app in development mode
 """"""""""""""
 
 .. code-block:: shell
+
     invoke devel
 
 Everything should be set up for now :).
@@ -73,9 +85,11 @@ Building and publishing
     Commands down here are mostly placeholders, so please, do not **USE THEM YET**.
 
 .. code-block:: shell
+
     invoke build # executes app build
     invoke publish # executes app publish to github
 
+.. _Prebuilt:
 Downloading/using prebuilt binaries
 -----------------------
 
@@ -161,13 +175,8 @@ Controller Plugins
 .. note::
     **The plugin GUI is not done yet**, project needs some reworking of the plugin implementations.
 
-.. _Controller:
+.. _Worker:
 Worker (ATCo) window
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 .. image:: imgs/pic/worker.png
-
-.. _App settings:
-App settings
-===================================
-
