@@ -6,7 +6,6 @@ This manual depicts all the user interaction with the
 desktop app itself. Manual consists of **App installation**, **Types of windows** and all their functionalities
 and **App settings** (types of settings and their effects on the application runtime)
 
-:orphan:
 Table of contents
 ===================================
 #. :ref:`App installation`
@@ -19,6 +18,7 @@ Table of contents
     #. :ref:`Worker`
 
 .. _App installation:
+
 App installataion
 ===================================
 
@@ -28,6 +28,7 @@ App installataion
    However, you'll soon be able to see releases at `SEDAS github Releases <https://github.com/SEDAS-DevTeam/SEDAS-manager/releases>`_.
 
 .. _Build locally:
+
 Building locally
 -----------------------
 
@@ -91,6 +92,7 @@ Building and publishing
     invoke publish # executes app publish to github
 
 .. _Prebuilt:
+
 Downloading/using prebuilt binaries
 -----------------------
 
@@ -113,6 +115,7 @@ MacOS
     Project is not built yet
 
 .. _Windows:
+
 Windows and their functionalities
 ===================================
 
@@ -122,6 +125,7 @@ Types of windows
 Currently, these types of windows are utilized:
 
 .. _Main menu:
+
 Main menu
 ^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -139,12 +143,14 @@ to different parts of the app.
     **Reload button is greyed out for now**, the last session recovery is not yet implemented.
 
 .. _Settings:
+
 Settings
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 .. image:: imgs/pic/settings.png
 
 .. _Controller:
+
 Controller window
 ^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -177,6 +183,7 @@ Controller Plugins
     **The plugin GUI is not done yet**, project needs some reworking of the plugin implementations.
 
 .. _Worker:
+
 Worker (ATCo) window
 ^^^^^^^^^^^^^^^^^^^^^^^
 

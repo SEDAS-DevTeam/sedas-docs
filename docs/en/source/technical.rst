@@ -2,7 +2,6 @@
 Technical background
 ===================
 
-:orphan:
 Table of contents
 ===================================
 #. :ref:`Technologies`
