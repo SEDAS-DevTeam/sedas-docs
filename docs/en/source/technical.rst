@@ -5,7 +5,7 @@ Technical background
 Application itself uses a lot of technologies to implement many of its parts. For example it utilises localhost sockets communication for the communication between main app and AI module. This page will try to explain all the technical approaches that were used in the development.
 
 .. list-table:: List of used technologies
-   :widths: 30 70
+   :widths: 40 60
    
    * - **Used tech**
      - **Explanation**
