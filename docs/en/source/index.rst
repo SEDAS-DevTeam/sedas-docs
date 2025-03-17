@@ -25,6 +25,9 @@ so that they don't need specialized hardware and software for the subject of Air
 
    **This project is still under active development.** The project itself is quite complex and requires some parts to be reimplemented for the upcoming versions.
 
+The project itself is divided into several subprojects that are under the **SEDAS-DevTeam** organisation on github (`link <https://github.com/SEDAS-DevTeam>`_).
+The goal of this project is to educate more people about the air traffic control. Therefore that is the reason why the whole codebase is fully opensource and is ready for any contributions
+to the project in the means of creating sustainable ATC community. In the future, this project will contain even more active repositories to contribute to the ATC research and development. 
 
 Redirects
 ===================================

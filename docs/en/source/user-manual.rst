@@ -38,16 +38,14 @@ Building locally
 .. tabs::
 
     .. tab:: Linux
-        Setting up repository
-        """"""""""""""
+        **Setting up repository**
 
         .. code-block:: shell
 
             git clone --recursive https://github.com/SEDAS-DevTeam/SEDAS-manager.git
             cd SEDAS-manager
 
-        Setting up virtual environment
-        """"""""""""""
+        **Setting up virtual environment**
 
         I recommend using `virtualenv` for setting up project helper (for managing building, compiling, etc.), but if you are more familiar with `conda`, there is no problem of using that.
         All the project helper dependencies are in `requirements.txt`
@@ -59,29 +57,25 @@ Building locally
             pip install -r requirements.txt
             cd src # get to working dir
 
-        Install npm dependencies
-        """"""""""""""
+        **Install npm dependencies**
 
         .. code-block:: shell
 
             npm install
 
-        Compile C++, TS and node-addon-api files
-        """"""""""""""
+        **Compile C++, TS and node-addon-api files**
 
         .. code-block:: shell
 
             invoke compile
 
-        Run app in development mode
-        """"""""""""""
+        **Run app in development mode**
 
         .. code-block:: shell
 
             invoke devel
 
-        Building and publishing
-        """"""""""""""
+        **Building and publishing**
 
         .. note::
             **These methods arent set up yet**, but will be worked on in the future, because they are quite crucial for the app development.
@@ -194,6 +188,7 @@ This is the most important window in the whole app. It categorizes user actions 
 
 .. figure:: imgs/pic/monitors.png
     :align: center
+    
     Controller Monitors tab
 
 .. note::
