@@ -35,84 +35,96 @@ Building locally
 .. note::
     **All the build steps were tested for Linux distros**, so the actual build instructions for Windows would probably differ significantly.
 
-Setting up repository
-""""""""""""""
+.. tabs::
 
-.. code-block:: shell
+    .. tab:: Linux
+        Setting up repository
+        """"""""""""""
 
-    git clone --recursive https://github.com/SEDAS-DevTeam/SEDAS-manager.git
-    cd SEDAS-manager
+        .. code-block:: shell
 
-Setting up virtual environment
-""""""""""""""
+            git clone --recursive https://github.com/SEDAS-DevTeam/SEDAS-manager.git
+            cd SEDAS-manager
 
-I recommend using `virtualenv` for setting up project helper (for managing building, compiling, etc.), but if you are more familiar with `conda`, there is no problem of using that.
-All the project helper dependencies are in `requirements.txt`
+        Setting up virtual environment
+        """"""""""""""
 
-.. code-block:: shell
+        I recommend using `virtualenv` for setting up project helper (for managing building, compiling, etc.), but if you are more familiar with `conda`, there is no problem of using that.
+        All the project helper dependencies are in `requirements.txt`
 
-    virtualenv sedas_manager_env
-    source sedas_manager_env/bin/activate # To activate venv, use "deactivate" for deactivation
-    pip install -r requirements.txt
-    cd src # get to working dir
+        .. code-block:: shell
 
-Install npm dependencies
-""""""""""""""
+            virtualenv sedas_manager_env
+            source sedas_manager_env/bin/activate # To activate venv, use "deactivate" for deactivation
+            pip install -r requirements.txt
+            cd src # get to working dir
 
-.. code-block:: shell
+        Install npm dependencies
+        """"""""""""""
 
-    npm install
+        .. code-block:: shell
 
-Compile C++, TS and node-addon-api files
-""""""""""""""
+            npm install
 
-.. code-block:: shell
+        Compile C++, TS and node-addon-api files
+        """"""""""""""
 
-    invoke compile
+        .. code-block:: shell
 
-Run app in development mode
-""""""""""""""
+            invoke compile
 
-.. code-block:: shell
+        Run app in development mode
+        """"""""""""""
 
-    invoke devel
+        .. code-block:: shell
+
+            invoke devel
+
+        Building and publishing
+        """"""""""""""
+
+        .. note::
+            **These methods arent set up yet**, but will be worked on in the future, because they are quite crucial for the app development.
+            Commands down here are mostly placeholders, so please, do not **USE THEM YET**.
+
+        .. code-block:: shell
+
+            invoke build # executes app build
+            invoke publish # executes app publish to github
+
+
+    .. tab:: Windows
+
+        .. note::
+            **Add windows build instructions**
+
+    .. tab:: MacOS
+
+        .. note::
+            **Add MacOS build instructions**
 
 Everything should be set up for now :).
-
-Building and publishing
-""""""""""""""
-
-.. note::
-    **These methods arent set up yet**, but will be worked on in the future, because they are quite crucial for the app development.
-    Commands down here are mostly placeholders, so please, do not **USE THEM YET**.
-
-.. code-block:: shell
-
-    invoke build # executes app build
-    invoke publish # executes app publish to github
 
 .. _Prebuilt:
 
 Downloading/using prebuilt binaries
 -----------------------
 
-Windows
-^^^^^^^^^^^^^^
+.. tabs::
+    .. tab:: Linux
+        
+        .. note::
+            Project is not built yet
+    
+    .. tab:: Windows
 
-.. note::
-    Project is not built yet
+        .. note::
+            Project is not built yet
+    
+    .. tab:: MacOS
 
-Linux
-^^^^^^^^^^^^^^
-
-.. note::
-    Project is not built yet
-
-MacOS
-^^^^^^^^^^^^^^
-
-.. note::
-    Project is not built yet
+        .. note::
+            Project is not built yet
 
 .. _Windows:
 
@@ -157,6 +169,7 @@ Controller window
 This is the most important window in the whole app. It categorizes user actions into multiple tabs (Setup, Simulation, Wiki, Monitors, Plugins) that are explained below.
 
 .. figure:: imgs/pic/controller_setup.png
+    :align: center
 
     Controller Setup tab
 
@@ -164,6 +177,7 @@ This is the most important window in the whole app. It categorizes user actions 
     **Add tab description**
 
 .. figure:: imgs/pic/controller_sim.png
+    :align: center
 
     Controller Simulation tab
 
@@ -171,6 +185,7 @@ This is the most important window in the whole app. It categorizes user actions 
     **Add tab description**
 
 .. figure:: imgs/pic/wiki.png
+    :align: center
 
     Controller Wiki tab
 
@@ -178,7 +193,7 @@ This is the most important window in the whole app. It categorizes user actions 
     **Add tab description**
 
 .. figure:: imgs/pic/monitors.png
-    
+    :align: center
     Controller Monitors tab
 
 .. note::
