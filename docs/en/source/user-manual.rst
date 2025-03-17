@@ -127,7 +127,7 @@ Currently, these types of windows are utilized:
 .. _Main menu:
 
 Main menu
-^^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""
 
 In the start of the desktop app, user is greeted with the main menu window. This window just has 3 buttons, that redirect user
 to different parts of the app.
@@ -145,14 +145,14 @@ to different parts of the app.
 .. _Settings:
 
 Settings
-^^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""
 
 .. image:: imgs/pic/settings.png
 
 .. _Controller:
 
 Controller window
-^^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""
 
 This is the most important window in the whole app. It categorizes user actions into multiple tabs (Setup, Simulation, Wiki, Monitors, Plugins) that are explained below.
 
@@ -185,6 +185,6 @@ Controller Plugins
 .. _Worker:
 
 Worker (ATCo) window
-^^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""
 
 .. image:: imgs/pic/worker.png
