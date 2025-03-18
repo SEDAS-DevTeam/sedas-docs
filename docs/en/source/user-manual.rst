@@ -155,49 +155,63 @@ Settings
 
 .. image:: imgs/pic/settings.png
 
+In the settings window, user can set up the basic simulator behavior. The window itself is separated into multiple categories. We have the general settings, which facilitate
+the general ATC simulator behavior. Then we have the Controller settings (i. e. the behavior of the ATCo windows) and the Simulation settings, which allow user to change some
+environmental aspects and also AI pseudopilot behavior.
+
 .. _Controller:
 
 Controller window
 """"""""""""""""""
 
 This is the most important window in the whole app. It categorizes user actions into multiple tabs (Setup, Simulation, Wiki, Monitors, Plugins) that are explained below.
+The documentation is formatted into different categories that explain specific window. Category order is similar to the order in Controller window.
 
-.. figure:: imgs/pic/controller_setup.png
-    :align: center
+.. tabs::
+    .. tab:: Setup tab
+        
+        .. figure:: imgs/pic/controller_setup.png
+            :align: center
 
-    Controller Setup tab
+            Controller Setup tab
 
-.. note::
-    **Add tab description**
-
-.. figure:: imgs/pic/controller_sim.png
-    :align: center
-
-    Controller Simulation tab
-
-.. note::
-    **Add tab description**
-
-.. figure:: imgs/pic/wiki.png
-    :align: center
-
-    Controller Wiki tab
-
-.. note::
-    **Add tab description**
-
-.. figure:: imgs/pic/monitors.png
-    :align: center
+        .. note::
+            **Add tab description**
     
-    Controller Monitors tab
+    .. tab:: Monitors tab
 
-.. note::
-    **Add tab description**
+        .. figure:: imgs/pic/monitors.png
+            :align: center
+            
+            Controller Monitors tab
 
-Controller Plugins
+        .. note::
+            **Add tab description**
+    
+    .. tab:: Simulation tab
 
-.. note::
-    **The plugin GUI is not done yet**, project needs some reworking of the plugin implementations.
+        .. figure:: imgs/pic/controller_sim.png
+            :align: center
+
+            Controller Simulation tab
+
+        .. note::
+            **Add tab description**
+
+    .. tab:: Plugins tab
+
+        .. note::
+            **The plugin GUI is not done yet**, project needs some reworking of the plugin implementations.
+
+    .. tab:: Wiki tab
+
+        .. figure:: imgs/pic/wiki.png
+            :align: center
+
+            Controller Wiki tab
+
+        .. note::
+            **Add tab description**
 
 .. _Worker:
 
@@ -205,3 +219,8 @@ Worker (ATCo) window
 """"""""""""""""""
 
 .. image:: imgs/pic/worker.png
+
+This is the GUI that is visible for the ATCo (Air traffic control officer). The overlay is partly inspired from other simulators as well.
+On the top is the topnav that contains ATCo actions (microphone output toggle, Date and time of simulation and simulation state switching).
+Simulator also allows ATCo to exit simulations (so that ATCo doesnt have to drag their mouse to separate window in order to exit app).
+On the bottom right corner we have the scale, so that ATCo can make some as assumption about the area of the ATM zone. Planes also have dotted paths that indicate their previous location.

@@ -13,3 +13,4 @@ The main documentation for all **SEDAS** apps and toolkits.
 - [ ] - Translate to Czech
 - [ ] - Complete documentation
 - [ ] - Add build links to SEDAS-manager
+- [ ] - Translate image captions
