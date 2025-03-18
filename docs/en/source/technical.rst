@@ -7,6 +7,7 @@ Table of contents
 #. :ref:`Technologies`
 #. :ref:`Schematic`
 #. :ref:`Neural networks`
+#. :ref:`Calculations`
 
 .. _Technologies:
 Used technologies
@@ -78,3 +79,10 @@ The raw transcription is then programmaticaly processed (getting rid of timestam
    **System currently supports only the Pipewire audio system**. Unfortunately, porting to generic 
    audio system that could be cross platform is still in development.
    `Github issue <https://github.com/SEDAS-DevTeam/SEDAS-AI-backend/issues/5>`_.
+
+.. _Calculations:
+Plane/Environment calculations
+=============
+
+.. note::
+  **Add some explanation**
