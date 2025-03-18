@@ -17,7 +17,7 @@ About
 ===================================
 
 This project is a new concept of an ATC simulator both for beginners and advanced users. 
-It utilises neural networks and implements custom AI module to imitate real pilots (e. g. pseudopilots in the terms of ATC simulation). 
+It utilises neural networks and implements custom AI module to imitate real pilots (i. e. pseudopilots in the terms of ATC simulation). 
 Goal of this desktop application is to make ATC learning easier for hobbyists and begineer ATC students, 
 so that they don't need specialized hardware and software for the subject of Air traffic control (ATC).
 

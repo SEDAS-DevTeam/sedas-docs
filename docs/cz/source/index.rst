@@ -1,8 +1,8 @@
 ===================================
-Welcome to SEDAS documentation!
+Vítejte v dokumentaci SEDAS!
 ===================================
 
-Table of Contents
+Obsah
 ===================================
 
 .. toctree::
@@ -13,25 +13,29 @@ Table of Contents
    theory
    technical
 
-About
+O projektu
 ===================================
 
-This project is a new concept of an ATC simulator both for beginners and advanced users. 
-It utilises neural networks and implements custom AI module to imitate real pilots (e. g. pseudopilots in the terms of ATC simulation). 
-Goal of this desktop application is to make ATC learning easier for hobbyists and begineer ATC students, 
-so that they don't need specialized hardware and software for the subject of Air traffic control (ATC).
+Tento projekt představuje nový koncept ATC simulátoru, který je určen jak pro začátečníky, tak pro pokročilé uživatele.
+Využívá neuronové sítě a implementuje vlastní modul AI k simulaci reálných pilotů (pseudopiloty v kontextu simulace ATC).
+Cílem této aplikace je usnadnit výuku řízení letového provozu (ATC) jak
+pro nadšence tak i studenty, aniž by potřebovali specializovaný hardware a software.
 
 .. note::
 
-   **This project is still under active development.** The project itself is quite complex and requires some parts to be reimplemented for the upcoming versions.
+   **Tento projekt je stále ve fázi aktivního vývoje.** Projekt je poměrně složitý a vyžaduje přepracování některých částí pro budoucí verze.
 
+Projekt je rozdělen do několika podprojektů v rámci organizace **SEDAS-DevTeam** na GitHubu (`odkaz <https://github.com/SEDAS-DevTeam>`_).
+Hlavní cíl projektu je vzdělávat lidi v oblasti řízení letového provozu, a proto je celý kód open-source.
+Cílem je vytvořit udržitelnou komunitu ATC a rozšířit výzkum i vývoj v oblasti ATC. V budoucnu bude tento projekt obsahovat i více aktivních repozitářů které budou přispívat do výzkumu a vývoji ATC softwaru.
 
-Redirects
+Přesměrování
 ===================================
 
-If you want to get to specific parts/explanation to the project, you can click on any record in the table of contents (ToC) for a redirect to specific part of documentation.
-ToC is structured into this format:
+Pokud chcete přejít na konkrétní části projektu, můžete kliknout na libovolný záznam v obsahu, který vás přesměruje na příslušnou část dokumentace.
+Struktura obsahu je následující:
 
-* **User manual** - Manual for the SEDAS user. Describes the whole app pipeline and explains every functionality that is currently implemented
-* **ATC theory** - A small sub-documentation that explains Air traffic control (ATC) in simpler terms than in official docs, also redirects to other documentations (Skybrary, IVAO, etc.) 
-* **Technical background** - Explains every feature and the whole architecture of SEDAS in technical terms. Mostly for people who want to contribute to SEDAS.
+* **Uživatelská příručka** - Příručka pro uživatele SEDAS. Popisuje celou aplikaci a její funkcionalitu.
+* **ATC teorie** - Krátká poddokumentace vysvětlí řízení letového provozu (ATC) jednodušší formou a poskytne odkazy na další zdroje (Skybrary, IVAO atd.).
+* **Technické aspekty aplikace** - Detailně vysvětluje architekturu SEDAS, určeno pro ty, kteří chtějí do projektu přispět.
+

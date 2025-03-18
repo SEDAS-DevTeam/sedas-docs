@@ -34,7 +34,7 @@ Application itself uses a lot of technologies to implement many of its parts. Fo
      - 
    * - ``Whisper``
      - ASR \*
-   * - ``Rule-based NLP``
+   * - ``Rule-based NLP (regex, if-else)``
      - NLP \*
    * - ``VITS``
      - TTS \*
@@ -48,9 +48,6 @@ Application itself uses a lot of technologies to implement many of its parts. Fo
 \* **NLP** - Natural Language Processing
 
 \* **TTS** - Text To Speech synthesis
-
-.. note::
-   **Rework all the image resources to english**
 
 .. _Schematic:
 App schematic

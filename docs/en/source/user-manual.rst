@@ -237,8 +237,17 @@ The documentation is formatted into different categories that explain specific w
 
             Controller Simulation tab
 
+        In the simulation tab, user can control the simulation behavior. This is not really needed in **Planned simulations** but quite crucial in the **Unplanned simulations**.
+        At the top, user can control simulation state. Then we have the plane spawning part. There we can set the plane name (random generated or typed) and
+        initial heading, level and speed. We can also designate specific departure and arrival points to the plane.
+
         .. note::
-            **Add tab description**
+            **Options: Plane type and Monitor** are not functional yet. They did not present any kind of relevance in the plane simulation setting, so in the future we either remove them or make them functional.
+
+        After confirming a plane, the plane will spawn on ATCo window and we will see a new panel opened at the Plane control category. Here, user can control the values of the plane (heading, level and speed).
+        This panel is just for basic correction, it is not needed because its functionality is supplemented by AI pseudopilots (i. e. user controls all the plane variables verbally).
+
+        The last part is the plane terminal. Here, user can see all the logs about planes responding to ATCo commands and also heading, level and speech changes made by the plane.
 
     .. tab:: Plugins tab
 
