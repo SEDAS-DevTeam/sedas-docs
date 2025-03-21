@@ -16,7 +16,6 @@ In the future, the ideal state of the project would be that the software would b
 But be aware that this is going to take a time before we approach this goal.
 
 .. list-table:: List of used ATC sources
-    :widths: 
 
     * - **Name**
       - **Publisher**
@@ -33,6 +32,10 @@ But be aware that this is going to take a time before we approach this goal.
     * - *Say Again? Phraseology Database*
       - EUROCONTROL
       - `eurocontrol contentzone <https://contentzone.eurocontrol.int/phraseology/>`_
+      - Phraseology used in this ATC simulator
+    * - *Aeronautical phraseology and terminology*
+      - AIM CZ
+      - `Aeronautical information service of CZ <https://aim.rlp.cz/predpisy/predpisy/dokumenty/L/L-Frazeologie/data/print/Frazeologie_cely.pdf>`_
       - Phraseology used in this ATC simulator
     * - **ATC basics**
       -
