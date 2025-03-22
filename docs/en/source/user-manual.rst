@@ -28,6 +28,22 @@ App installataion
    **Currently, project does not have any builds**, the main desktop app is now in early development and many features are not done yet.
    However, you'll soon be able to see releases at `SEDAS github Releases <https://github.com/SEDAS-DevTeam/SEDAS-manager/releases>`_.
 
+.. list-table:: List of supported OSes/distros
+    :header-rows: 1
+
+    * - **Name**
+      - **Status**
+      - **Note**
+    * - Ubuntu 24.04
+      - .. image:: https://img.shields.io/badge/Working-green?style=flat-square
+      - Local builds working after some tweaks
+    * - Ubuntu 22.04
+      - .. image:: https://img.shields.io/badge/Not_Tested-yellow?style=flat-square
+      - Not tested yet
+    * - Arch Linux
+      - .. image:: https://img.shields.io/badge/Failing-red?style=flat-square
+      - Needs pacman publishing to be solved (local builds work but I wanted to test the indication square)
+
 .. _Build locally:
 
 Building locally
@@ -35,6 +51,10 @@ Building locally
 
 .. note::
     **All the build steps were tested for Linux distros**, so the actual build instructions for Windows would probably differ significantly.
+
+
+Workspace setup
+""""""""""""""""""
 
 .. tabs::
 
@@ -104,7 +124,7 @@ Building locally
             **Add MacOS build instructions**
 
 Building and Publishing to github releases
------------------------
+""""""""""""""""""
 
 Toolkit enables developer to build and publish a binary locally. This feature is only for users who want to contribute and be part of the active development.
 So there are definitely going to be some changes regarding this part.
@@ -119,6 +139,22 @@ So there are definitely going to be some changes regarding this part.
 
 .. note::
     **The publishing wont work right now.** You would need to be authorized and have access to the organizations which is not possible for now because many aspects needs to be tweaked in the future.
+
+Setting up other projects
+""""""""""""""""""
+
+This part is entirely optional. It is just here to show people who want to take part of the development how to setup other SEDAS repositories as well.
+
+.. tabs::
+
+    .. tab:: SEDAS-AI-backend
+        Add something
+
+    .. tab:: ATC-whisper
+        Add something
+    
+    .. tab:: sedas-docs
+        Add something
 
 .. _Prebuilt:
 

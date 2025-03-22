@@ -14,3 +14,4 @@ The main documentation for all **SEDAS** apps and toolkits.
 - [ ] - Complete documentation
 - [ ] - Add build links to SEDAS-manager
 - [ ] - Translate image captions
+- [ ] - Fix the way of testing documentation locally
