@@ -56,13 +56,24 @@ Building locally
             virtualenv sedas_manager_env
             source sedas_manager_env/bin/activate # To activate venv, use "deactivate" for deactivation
             pip install -r requirements.txt
-            cd src # get to working dir
+
+        .. note::
+            **In order for this project to work you need to have Node.js runtime installed.** I recommend using ``nvm`` (node version manager) to manage Node.js versions you installed (`nvm installation <https://github.com/nvm-sh/nvm>`_).
 
         **Install npm dependencies**
 
         .. code-block:: shell
 
             npm install
+            npm install -g node-gyp # to enable addon compilation
+        
+        .. note::
+            **Currently, Ubuntu 24.04 implemented the new AppImage restrictions,** so that user cannot run electron apps sandboxed (`github issue <https://github.com/electron/electron/issues/42510>`_).
+            The temporary workaround is below:
+
+            .. code-block:: shell
+                sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0 # deactivates the restriction
+                sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=1 # activates the restriction
 
         **Compile C++, TS and node-addon-api files**
 
@@ -76,16 +87,7 @@ Building locally
 
             invoke devel
 
-        **Building and publishing**
-
-        .. note::
-            **These methods arent set up yet**, but will be worked on in the future, because they are quite crucial for the app development.
-            Commands down here are mostly placeholders, so please, do not **USE THEM YET**.
-
-        .. code-block:: shell
-
-            invoke build # executes app build
-            invoke publish # executes app publish to github
+        Everything should be set up for now :).
 
 
     .. tab:: Windows
@@ -98,7 +100,22 @@ Building locally
         .. note::
             **Add MacOS build instructions**
 
-Everything should be set up for now :).
+Building and Publishing to github releases
+-----------------------
+
+Toolkit enables developer to build and publish a binary locally. This feature is only for users who want to contribute and be part of the active development.
+So there are definitely going to be some changes regarding this part.
+
+.. code-block:: shell
+
+    invoke build # executes app build
+    invoke publish # executes app publish to github
+
+.. note::
+    Difference between ``publish`` and ``build`` commands is that ``publish`` also publishes the binary to Github. So you dont need to run ``build`` before publishing.
+
+.. note::
+    **The publishing wont work right now.** You would need to be authorized and have access to the organizations which is not possible for now because many aspects needs to be tweaked in the future.
 
 .. _Prebuilt:
 
@@ -280,3 +297,41 @@ On the bottom right corner we have the scale, so that ATCo can make some as assu
 .. _Configurations:
 User-manageable JSON configurations
 ===================================
+
+.. note::
+    **TODO**, add something here
+
+For ACC
+-----------------------
+
+```
+TYPE: "ACC" //specify Controller type
+//Areodrome Reference Point, used to locate where Airport is until aircraft control is passsed to APP or TWR
+ARP: "none" |
+{x: "int value x 1", y: "int value y 1", name: "Airport callsign 1"}
+{x: "int value x 2", y: "int value y 2", name: "Airport callsign 2"}
+//{} brackets indicate one ARP record
+POINTS: 
+{x: "int value x 1", y: "int value y 1", name: "Point (route) callsign 1"}
+{x: "int value x 2", y: "int value y 2", name: "Point (route) callsign 2"}
+//{} brackets indicate one Point record
+//Standart Instrument Departure points (not connected by lines)
+SID: "none" |
+{x: "int value x 1", y: "int value y 1", name: "SID callsign 1"}
+{x: "int value x 2", y: "int value y 2", name: "SID callsign 2"}
+//{} brackets indicate one SID record
+//Standart Arrival Route points (connected by lines)
+STAR: "none" |
+{x: "int value x 1", y: "int value y 1", name: "STAR callsign 1"}
+{x: "int value x 2", y: "int value y 2", name: "STAR callsign 2"}
+//{} brackets indicate one STAR record
+SECTOR: //a FIR sector where an ATCO will operate, is defined by unlimited set of points (n-gon)
+{x: "int value x 1", y: "int value y 1"}
+{x: "int value x 2", y: "int value y 2"}
+{x: "int value x 3", y: "int value y 3"}
+{x: "int value x 4", y: "int value y 4"}
+//{} brackets indicate one corner of resulting shape
+```
+
+.. note::
+    **TODO:** organize
