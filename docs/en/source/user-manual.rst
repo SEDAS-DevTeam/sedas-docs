@@ -68,12 +68,15 @@ Building locally
             npm install -g node-gyp # to enable addon compilation
         
         .. note::
-            **Currently, Ubuntu 24.04 implemented the new AppImage restrictions,** so that user cannot run electron apps sandboxed (`github issue <https://github.com/electron/electron/issues/42510>`_).
+
+            **Currently, Ubuntu 24.04 implemented the new AppImage restrictions,** so that users cannot run Electron apps sandboxed (`github issue <https://github.com/electron/electron/issues/42510>`_).
             The temporary workaround is below:
 
             .. code-block:: shell
+
                 sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0 # deactivates the restriction
                 sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=1 # activates the restriction
+
 
         **Compile C++, TS and node-addon-api files**
 
