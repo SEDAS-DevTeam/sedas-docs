@@ -20,7 +20,7 @@ Table of contents
 
 .. _App installation:
 
-App installataion
+App installation
 ===================================
 
 .. note::
@@ -68,14 +68,19 @@ Workspace setup
 
         **Setting up virtual environment**
 
-        I recommend using `virtualenv` for setting up project helper (for managing building, compiling, etc.), but if you are more familiar with `conda`, there is no problem of using that.
-        All the project helper dependencies are in `requirements.txt`
+        I recommend using ``pyenv`` for setting up project helper (for managing building, compiling, etc.), but if you are more familiar with `conda`, there is no problem of using that.
+        All the project helper dependencies are in ``requirements.txt``
 
         .. code-block:: shell
 
-            virtualenv sedas_manager_env
-            source sedas_manager_env/bin/activate # To activate venv, use "deactivate" for deactivation
-            pip install -r requirements.txt
+            pyenv install 3.11 # install python3.11
+            pyenv virtualenv 3.11 sedas_manager_env
+            pyenv local sedas_manager_env # Switches to environment
+            pip install -r requirements.txt # install depedendencies
+
+        .. note::
+            This local setup created a ``.python-version`` file inside your workspace. It helps pyenv determine what virtual environment to activate.
+            So basically you don't need to do the activation/deactivation.
 
         .. note::
             **In order for this project to work you need to have Node.js runtime installed.** I recommend using ``nvm`` (node version manager) to manage Node.js versions you installed (`nvm installation <https://github.com/nvm-sh/nvm>`_).
@@ -146,6 +151,9 @@ Setting up other projects
 This part is entirely optional. It is just here to show people who want to take part of the development how to setup other SEDAS repositories as well.
 
 .. tabs::
+
+    .. tab:: SEDAS-installer
+        Add something
 
     .. tab:: SEDAS-AI-backend
         Add something
