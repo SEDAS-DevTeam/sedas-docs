@@ -66,7 +66,7 @@ Workspace setup
             git clone --recursive https://github.com/SEDAS-DevTeam/SEDAS-manager.git
             cd SEDAS-manager
 
-        **Setting up virtual environment**
+        **Setting up Python virtual environment**
 
         I recommend using ``pyenv`` for setting up project helper (for managing building, compiling, etc.), but if you are more familiar with `conda`, there is no problem of using that.
         All the project helper dependencies are in ``requirements.txt``
@@ -82,8 +82,17 @@ Workspace setup
             This local setup created a ``.python-version`` file inside your workspace. It helps pyenv determine what virtual environment to activate.
             So basically you don't need to do the activation/deactivation.
 
-        .. note::
-            **In order for this project to work you need to have Node.js runtime installed.** I recommend using ``nvm`` (node version manager) to manage Node.js versions you installed (`nvm installation <https://github.com/nvm-sh/nvm>`_).
+        **Setting up Node.js environment**
+
+        This projects uses ``nvm`` (Node Version Manager, `installation link <https://github.com/nvm-sh/nvm>`_) for the Node.js version managing, so that the project could stay mostly up to date. I recommend using this for the standard setup.
+        Currently, the project uses the latest LTS version (*v22.14.0*), in order to set up environment correctly, you have to take steps below:
+
+        .. code-block:: shell
+
+            nvm install # to install LTS version from .nvmrc file
+            npm install -g npm@latext # ensure the latest version of npm
+
+        The Node.js environment is now set up. The invoke commands will automatically switch to version specified in ``.nvmrc``. 
 
         **Install npm dependencies**
 
