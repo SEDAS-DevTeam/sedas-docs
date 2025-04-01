@@ -42,133 +42,134 @@ App installation
       - .. image:: https://img.shields.io/badge/Failing-red?style=flat-square
       - Needs pacman publishing to be solved (local builds work but I wanted to test the indication square)
 
-.. dropdown:: Building locally
+:::{dropdown} Building locally
 
-    Building locally
-    -----------------------
+Building locally
+-----------------------
 
-    .. note::
-        **All the build steps were tested for Linux distros**, so the actual build instructions for Windows would probably differ significantly.
-
-
-    Workspace setup
-    """"""""""""""""""
-
-    .. tabs::
-
-        .. tab:: Linux
-            **Setting up repository**
-
-            .. code-block:: shell
-
-                git clone --recursive https://github.com/SEDAS-DevTeam/SEDAS-manager.git
-                cd SEDAS-manager
-
-            **Setting up Python virtual environment**
-
-            I recommend using ``pyenv`` for setting up project helper (for managing building, compiling, etc.), but if you are more familiar with `conda`, there is no problem of using that.
-            All the project helper dependencies are in ``requirements.txt``
-
-            .. code-block:: shell
-
-                pyenv install 3.11 # install python3.11
-                pyenv virtualenv 3.11 sedas_manager_env
-                pyenv local sedas_manager_env # Switches to environment
-                pip install -r requirements.txt # install depedendencies
-
-            .. note::
-                This local setup created a ``.python-version`` file inside your workspace. It helps pyenv determine what virtual environment to activate.
-                So basically you don't need to do the activation/deactivation.
-
-            **Setting up Node.js environment**
-
-            This projects uses ``nvm`` (Node Version Manager, `installation link <https://github.com/nvm-sh/nvm>`_) for the Node.js version managing, so that the project could stay mostly up to date. I recommend using this for the standard setup.
-            Currently, the project uses the latest LTS version (*v22.14.0*), in order to set up environment correctly, you have to take steps below:
-
-            .. code-block:: shell
-
-                nvm install # to install LTS version from .nvmrc file
-                npm install -g npm@latext # ensure the latest version of npm
-
-            The Node.js environment is now set up. The invoke commands will automatically switch to version specified in ``.nvmrc``. 
-
-            **Install npm dependencies**
-
-            .. code-block:: shell
-
-                npm install
-                npm install -g node-gyp # to enable addon compilation
-            
-            .. note::
-
-                **Currently, Ubuntu 24.04 implemented the new AppImage restrictions,** so that users cannot run Electron apps sandboxed (`github issue <https://github.com/electron/electron/issues/42510>`_).
-                The temporary workaround is below:
-
-                .. code-block:: shell
-
-                    sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0 # deactivates the restriction
-                    sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=1 # activates the restriction
+.. note::
+    **All the build steps were tested for Linux distros**, so the actual build instructions for Windows would probably differ significantly.
 
 
-            **Compile C++, TS and node-addon-api files**
+Workspace setup
+""""""""""""""""""
 
-            .. code-block:: shell
+.. tabs::
 
-                invoke compile
+    .. tab:: Linux
+        **Setting up repository**
 
-            **Run app in development mode**
+        .. code-block:: shell
 
-            .. code-block:: shell
+            git clone --recursive https://github.com/SEDAS-DevTeam/SEDAS-manager.git
+            cd SEDAS-manager
 
-                invoke devel
+        **Setting up Python virtual environment**
 
-            Everything should be set up for now :).
+        I recommend using ``pyenv`` for setting up project helper (for managing building, compiling, etc.), but if you are more familiar with `conda`, there is no problem of using that.
+        All the project helper dependencies are in ``requirements.txt``
 
+        .. code-block:: shell
 
-        .. tab:: Windows
+            pyenv install 3.11 # install python3.11
+            pyenv virtualenv 3.11 sedas_manager_env
+            pyenv local sedas_manager_env # Switches to environment
+            pip install -r requirements.txt # install depedendencies
 
-            .. note::
-                **Add windows build instructions**
+        .. note::
+            This local setup created a ``.python-version`` file inside your workspace. It helps pyenv determine what virtual environment to activate.
+            So basically you don't need to do the activation/deactivation.
 
-        .. tab:: MacOS
+        **Setting up Node.js environment**
 
-            .. note::
-                **Add MacOS build instructions**
+        This projects uses ``nvm`` (Node Version Manager, `installation link <https://github.com/nvm-sh/nvm>`_) for the Node.js version managing, so that the project could stay mostly up to date. I recommend using this for the standard setup.
+        Currently, the project uses the latest LTS version (*v22.14.0*), in order to set up environment correctly, you have to take steps below:
 
-    Building and Publishing to github releases
-    """"""""""""""""""
+        .. code-block:: shell
 
-    Toolkit enables developer to build and publish a binary locally. This feature is only for users who want to contribute and be part of the active development.
-    So there are definitely going to be some changes regarding this part.
+            nvm install # to install LTS version from .nvmrc file
+            npm install -g npm@latext # ensure the latest version of npm
 
-    .. code-block:: shell
+        The Node.js environment is now set up. The invoke commands will automatically switch to version specified in ``.nvmrc``. 
 
-        invoke build # executes app build
-        invoke publish # executes app publish to github
+        **Install npm dependencies**
 
-    .. note::
-        Difference between ``publish`` and ``build`` commands is that ``publish`` also publishes the binary to Github. So you dont need to run ``build`` before publishing.
+        .. code-block:: shell
 
-    .. note::
-        **The publishing wont work right now.** You would need to be authorized and have access to the organizations which is not possible for now because many aspects needs to be tweaked in the future.
-
-    Setting up other projects
-    """"""""""""""""""
-
-    This part is entirely optional. It is just here to show people who want to take part of the development how to setup other SEDAS repositories as well.
-
-    .. tabs::
-
-        .. tab:: SEDAS-AI-backend
-            Add something
-
-        .. tab:: ATC-whisper
-            Add something
+            npm install
+            npm install -g node-gyp # to enable addon compilation
         
-        .. tab:: sedas-docs
-            Add something
+        .. note::
 
-.. dropdown:: Downloading/using prebuilt binaries
+            **Currently, Ubuntu 24.04 implemented the new AppImage restrictions,** so that users cannot run Electron apps sandboxed (`github issue <https://github.com/electron/electron/issues/42510>`_).
+            The temporary workaround is below:
+
+            .. code-block:: shell
+
+                sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0 # deactivates the restriction
+                sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=1 # activates the restriction
+
+
+        **Compile C++, TS and node-addon-api files**
+
+        .. code-block:: shell
+
+            invoke compile
+
+        **Run app in development mode**
+
+        .. code-block:: shell
+
+            invoke devel
+
+        Everything should be set up for now :).
+
+
+    .. tab:: Windows
+
+        .. note::
+            **Add windows build instructions**
+
+    .. tab:: MacOS
+
+        .. note::
+            **Add MacOS build instructions**
+
+Building and Publishing to github releases
+""""""""""""""""""
+
+Toolkit enables developer to build and publish a binary locally. This feature is only for users who want to contribute and be part of the active development.
+So there are definitely going to be some changes regarding this part.
+
+.. code-block:: shell
+
+    invoke build # executes app build
+    invoke publish # executes app publish to github
+
+.. note::
+    Difference between ``publish`` and ``build`` commands is that ``publish`` also publishes the binary to Github. So you dont need to run ``build`` before publishing.
+
+.. note::
+    **The publishing wont work right now.** You would need to be authorized and have access to the organizations which is not possible for now because many aspects needs to be tweaked in the future.
+
+Setting up other projects
+""""""""""""""""""
+
+This part is entirely optional. It is just here to show people who want to take part of the development how to setup other SEDAS repositories as well.
+
+.. tabs::
+
+    .. tab:: SEDAS-AI-backend
+        Add something
+
+    .. tab:: ATC-whisper
+        Add something
+    
+    .. tab:: sedas-docs
+        Add something
+:::
+
+:::{dropdown} Downloading/using prebuilt binaries
 
     Downloading/using prebuilt binaries
     -----------------------
@@ -188,6 +189,8 @@ App installation
 
             .. note::
                 Project is not built yet
+
+:::
 
 .. _Windows:
 
