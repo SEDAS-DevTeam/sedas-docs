@@ -33,14 +33,20 @@ App installation
       - **Status**
       - **Note**
     * - Ubuntu 24.04
-      - .. image:: https://img.shields.io/badge/Working-green?style=flat-square
+      - .. image:: https://img.shields.io/badge/OK-green?style=flat-square
       - Local builds working after some tweaks
     * - Ubuntu 22.04
-      - .. image:: https://img.shields.io/badge/Not_Tested-yellow?style=flat-square
+      - .. image:: https://img.shields.io/badge/N/T-yellow?style=flat-square
       - Not tested yet
     * - Arch Linux
-      - .. image:: https://img.shields.io/badge/Failing-red?style=flat-square
+      - .. image:: https://img.shields.io/badge/X-red?style=flat-square
       - Needs pacman publishing to be solved (local builds work but I wanted to test the indication square)
+
+\* **OK** - Working on distro
+
+\* **N/T** - Not tested on distro
+
+\* **X** - Failing on distro
 
 .. tabs::
 
@@ -159,13 +165,164 @@ App installation
         .. tabs::
 
             .. tab:: SEDAS-AI-backend
-                Add something
+                
+                This module is already being built inside the SEDAS-manager as a submodule. So practically there is no need to build it yourself.
+                But if you want to take a part in the SEDAS-AI-backend development, you can follow these steps:
+
+                **Setting up the repository**
+
+                .. code-block:: shell
+
+                    git clone --recursive https://github.com/SEDAS-DevTeam/SEDAS-AI-backend.git
+                    cd SEDAS-AI-backend
+
+                **Setting up Python virtual environment**
+
+                .. code-block:: shell
+
+                    pyenv install 3.11 # install python3.11
+                    pyenv virtualenv 3.11 sedas_backend_env
+                    pyenv local sedas_backend_env # Switches to environment
+                    pip install -r requirements.txt # install depedendencies
+
+                    cd src # switch to working dir (where the tasks.py is located)
+
+                **Fetching all the ASR/TTS model resources**
+
+                .. code-block:: shell
+
+                    invoke fetch-resources
+
+                .. note::
+                    **Be aware** that this would probably take some time. The helper needs to fetch an ATC-whisper binary from `huggingface repository <https://huggingface.co/HelloWorld7894/SEDAS-whisper>`_ and also some TTS binaries from the Piper web resource.
+
+                **Building whisper.cpp dependency**
+
+                .. code-block:: shell
+
+                    invoke build-deps
+
+                .. note::
+                    This step would also take some time, the `whisper.cpp <https://github.com/ggml-org/whisper.cpp>`_ needs to build a wrapper that will invoke ATC-whisper model at the simulation start.
+                    So if you are compiling the CUDA version (that is set by default) this process will probably take some time.
+
+                **Building the whole project**
+
+                **For testing**
+
+                .. code-block:: shell
+
+                    # for running a test
+                    invoke build --DTESTING=ON
+                    invoke run test
+
+                For the ``test`` executable, you can control the ASR and TTS just by using a keyboard invokes (i. e. the ``a`` key for the start/stop of recording and ``q`` key for killing the entire program).
+
+                **For integration**
+
+                .. code-block:: shell
+
+                    # to test the actual executable that is going to be integrated in SEDAS
+                    invoke build --DTESTING=OFF
+                    invoke run main
+
+                For the ``main`` executable, in order to test the communication, you have to run another script on different terminal window (this is because the integration script communicates using socket communication on a specific port ``65 432``).
+                
+                .. code-block:: shell
+
+                    invoke test-main # runs the "commander" script that controls the "main" one
+
+                .. note::
+                    **Unfortunately**, the ``main`` executable currently communicates on a specific port that is not changeable.
+                    This will definitely change in future
+
+                The ``test-main`` script usage:
+
+                .. code-block:: shell
+
+                    register  [callsign (string)] [noise-intensity (float)] # registers a pseudopilot to communicate with user (write without brackets)
+                    
+                    start-mic # starts mic recording
+                    stop-mic # stops mic recording
+
+                    #
+                    # Do some communication here using start-mic or stop-mic
+                    #
+
+                    unregister [callsign (string)] # unregister/terminate a pseudopilot
+                    quit # terminate the main program
 
             .. tab:: ATC-whisper
-                Add something
+                
+                This repository is currently only used for research purposes, so it is completely excluded from the whole SEDAS-manager pipeline.
+                Normal user doesn't need to build it, because sedas automatically fetches corresponding binaries from the `huggingface repository <https://huggingface.co/HelloWorld7894/SEDAS-whisper>`_.
+                So follow this repo if you want to participate in the research and implementation for a better ASR model.
+
+                .. note::
+                    **Currently**, ATC-whisper does not support training own custom whisper model, it just implements a conversion of `whisper-ATC-czech-full <https://huggingface.co/BUT-FIT/whisper-ATC-czech-full>`_ (custom pretrained weights) into a
+                    model in ``GGML`` format. But in the future, project will allow training custom models on the ATCOSIM and other datasets.
             
+                **Setting up the repository**
+
+                .. code-block:: shell
+
+                    git clone --recursive https://github.com/SEDAS-DevTeam/ATC-whisper.git
+                    cd ATC-whisper
+
+                **Setting up Python virtual environment**
+
+                .. code-block:: shell
+                    
+                    conda env create -f environment.yaml
+                    conda activate atc_whisper # use conda deactivate for env deactivation
+
+                    cd src # get to working dir
+
+                **Download resources**
+
+                .. code-block:: shell
+
+                    invoke download
+                    # use: invoke download -t="repo" to download SEDAS-whisper huggingface repo
+                    # use: invoke download -t="model" to download whisper-ATC-czech-full resources
+
+                **Build whisper.cpp binary** (just for testing the inference of whisper model)
+
+                .. code-block:: shell
+
+                    invoke build
+
+                .. note::
+                    **Be aware** that this is going to take some time, because whisper.cpp needs to build a whole whisper wrapper binary. Process can get much more lengthy if it is built with CUDA support (which is now by default).
+
+                **Convert Pytorch binary to GGML binary**
+
+                .. code-block:: shell
+
+                    invoke convert bin-to-ggml
+                
+                **Testing inference**
+
+                .. code-block:: shell
+                    
+                    invoke run-infer
+
+                **Uploading modified content to Huggingface** (only works for authenticated users with their own token)
+
+                Token is saved to ``token.yaml`` in the root of the project (you have to create it yourself), the formatting is corresponding:
+
+                .. code-block:: yaml
+
+                    token: <your huggingface token>
+
+                To upload modified content, run this command:
+                
+                .. code-block:: shell
+
+                    invoke upload
+
             .. tab:: sedas-docs
-                Add something
+                **TODO:** Add something
 
     .. tab:: Downloading/using prebuilt binaries
 
