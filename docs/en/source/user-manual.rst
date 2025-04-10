@@ -14,6 +14,7 @@ Table of contents
     #. :ref:`Settings`
     #. :ref:`Controller`
     #. :ref:`Worker`
+#. :ref:`Modes`
 #. :ref:`Configurations`
 
 .. _App installation:
@@ -26,6 +27,12 @@ App installation
    **Currently, project does not have any builds**, the main desktop app is now in early development and many features are not done yet.
    However, you'll soon be able to see releases at `SEDAS github Releases <https://github.com/SEDAS-DevTeam/SEDAS-manager/releases>`_.
 
+..
+    Supported badges:
+    https://img.shields.io/badge/OK-green?style=flat-square = OK - build successful
+    https://img.shields.io/badge/WARN-yellow?style=flat-square = WARN - some issues might be on the way
+    https://img.shields.io/badge/X-red?style=flat-square = X - build unsuccessful
+
 .. list-table:: List of supported OSes/distros
     :header-rows: 1
 
@@ -33,20 +40,29 @@ App installation
       - **Status**
       - **Note**
     * - Ubuntu 24.04
-      - .. image:: https://img.shields.io/badge/OK-green?style=flat-square
-      - Local builds working after some tweaks
+      - .. image:: https://img.shields.io/badge/X-red?style=flat-square
+      - Release not available
     * - Ubuntu 22.04
-      - .. image:: https://img.shields.io/badge/N/T-yellow?style=flat-square
-      - Not tested yet
+      - .. image:: https://img.shields.io/badge/X-red?style=flat-square
+      - Release not available
     * - Arch Linux
       - .. image:: https://img.shields.io/badge/X-red?style=flat-square
-      - Needs pacman publishing to be solved (local builds work but I wanted to test the indication square)
+      - Release not available
+    * - Windows 11
+      - .. image:: https://img.shields.io/badge/X-red?style=flat-square
+      - Release not available
+    * - Windows 10
+      - .. image:: https://img.shields.io/badge/X-red?style=flat-square
+      - Release not available
+    * - MacOS
+      - .. image:: https://img.shields.io/badge/X-red?style=flat-square
+      - Release not available
 
 \* **OK** - Working on distro
 
-\* **N/T** - Not tested on distro
+\* **WARN** - Some issues are present
 
-\* **X** - Failing on distro
+\* **X** - Failing on distro/Not released yet
 
 .. tabs::
 
@@ -504,6 +520,23 @@ On the top is the topnav that contains ATCo actions (microphone output toggle, D
 Simulator also allows ATCo to exit simulations (so that ATCo doesnt have to drag their mouse to separate window in order to exit app).
 On the bottom right corner we have the scale, so that ATCo can make some as assumption about the area of the ATM zone. Planes also have dotted paths that indicate their previous location.
 
+.. _Modes:
+
+Simulation modes
+===================================
+
+Currently, the app supports two modes of ATC simulations: **planned** and **unplanned** simulations. Their purposes and functionalities are explained below.
+
+* **Planned simulations -** For the user, these ones are easier to set up. Only thing user needs to do is setting up the simulation in the :ref:`Controller` (more specificaly, the setup tab).
+Here, user specifies map, its corresponding scenario, some adjustments, aircraft presets, command presets and scenario time. After user clicks on the *Confirm and setup* button, the app starts its environment handler which then sets up all the monitors and also the whole ATC environment.
+After that, user can just click on the ``START`` button in the *Simulation tab*. After that, the simulation is set up and running. (User can then do some small tweaks in the terms of plane handling etc.)
+
+* **Unplanned simulations -** Every map supports an empty scenario. When user selects this, while also setting up the rest of presets, and pressing the *Confirm and setup* button, the app will not start its environment handler, because it detected that there is no scenario available.
+The only thing it will set up is the map and the rest of presets (aircrafts, commands). So in order to spawn any planes in the user-specified map, user needs to spawn planes manually, which is done in the *Simulation tab*.
+
+.. note::
+    **Currently, the app only supports the unplanned simulations scenario**, the planned simulation setup mechanism is still in the development.
+
 .. _Configurations:
 User-manageable JSON configurations
 ===================================
@@ -538,6 +571,7 @@ The main app settings could be changed via the graphic interface of the SEDAS se
                 .. note::
                     **Airline presets** are not yet implemented in the backend, by now, they do not serve a purpose.
                     But this feature will be implemented next to the planned simulation algorithm and setup.
+                    Currenntly, they are not even selectable in the *Setup tab* because the environment handler is not finished yet, and so because of that, it would basically serve no purpose.
 
             .. tab:: Command config
 
