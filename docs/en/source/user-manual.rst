@@ -58,11 +58,11 @@ App installation
       - .. image:: https://img.shields.io/badge/X-red?style=flat-square
       - Release not available
 
-\* **OK** - Working on distro
+* https://img.shields.io/badge/OK-green?style=flat-square - Working on distro
 
-\* **WARN** - Some issues are present
+* https://img.shields.io/badge/WARN-yellow?style=flat-square - Some issues are present
 
-\* **X** - Failing on distro/Not released yet
+* https://img.shields.io/badge/X-red?style=flat-square - Failing on distro/Not released yet
 
 .. tabs::
 
@@ -527,12 +527,9 @@ Simulation modes
 
 Currently, the app supports two modes of ATC simulations: **planned** and **unplanned** simulations. Their purposes and functionalities are explained below.
 
-* **Planned simulations -** For the user, these ones are easier to set up. Only thing user needs to do is setting up the simulation in the :ref:`Controller` (more specificaly, the setup tab).
-Here, user specifies map, its corresponding scenario, some adjustments, aircraft presets, command presets and scenario time. After user clicks on the *Confirm and setup* button, the app starts its environment handler which then sets up all the monitors and also the whole ATC environment.
-After that, user can just click on the ``START`` button in the *Simulation tab*. After that, the simulation is set up and running. (User can then do some small tweaks in the terms of plane handling etc.)
+* **Planned simulations -** For the user, these ones are easier to set up. Only thing user needs to do is setting up the simulation in the :ref:`Controller` (more specificaly, the setup tab). Here, user specifies map, its corresponding scenario, some adjustments, aircraft presets, command presets and scenario time. After user clicks on the *Confirm and setup* button, the app starts its environment handler which then sets up all the monitors and also the whole ATC environment. After that, user can just click on the ``START`` button in the *Simulation tab*. After that, the simulation is set up and running. (User can then do some small tweaks in the terms of plane handling etc.)
 
-* **Unplanned simulations -** Every map supports an empty scenario. When user selects this, while also setting up the rest of presets, and pressing the *Confirm and setup* button, the app will not start its environment handler, because it detected that there is no scenario available.
-The only thing it will set up is the map and the rest of presets (aircrafts, commands). So in order to spawn any planes in the user-specified map, user needs to spawn planes manually, which is done in the *Simulation tab*.
+* **Unplanned simulations -** Every map supports an empty scenario. When user selects this, while also setting up the rest of presets, and pressing the *Confirm and setup* button, the app will not start its environment handler, because it detected that there is no scenario available. The only thing it will set up is the map and the rest of presets (aircrafts, commands). So in order to spawn any planes in the user-specified map, user needs to spawn planes manually, which is done in the *Simulation tab*.
 
 .. note::
     **Currently, the app only supports the unplanned simulations scenario**, the planned simulation setup mechanism is still in the development.

@@ -5,6 +5,7 @@ Technical background
 Table of contents
 ===================================
 #. :ref:`Technologies`
+#. :ref:`Project`
 #. :ref:`Schematic`
 #. :ref:`Neural networks`
 #. :ref:`Calculations`
@@ -48,6 +49,18 @@ Application itself uses a lot of technologies to implement many of its parts. Fo
 \* **NLP** - Natural Language Processing
 
 \* **TTS** - Text To Speech synthesis
+
+.. _Project:
+Project schematic
+============
+
+Project itself is divided into several branches and structures, so that the it would be modular and easy to expand. 
+It currently uses many technologies/providers for the documentation and versioning, for example: **Huggingface** (Repository for SEDAS-whisper model weights, `link <https://huggingface.co/HelloWorld7894/SEDAS-whisper>`_), **Github** (Repositories and organisational page for the whole SEDAS ecosystem `link <https://github.com/SEDAS-DevTeam>`_), **ReadTheDocs** (Hosting the documentation for the whole project).
+The whole code is 100% open-source and every part of it is available on the Github organisation page. All the major subprojects of this ecosystem are arranged below.
+
+.. figure:: imgs/schema/project_structure.png
+
+  Major SEDAS projects and their versioning
 
 .. _Schematic:
 App schematic
