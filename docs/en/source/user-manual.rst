@@ -114,6 +114,12 @@ App installation
                         sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0 # deactivates the restriction
                         sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=1 # activates the restriction
 
+                **Check any updates from submodules**
+
+                .. code-block:: shell
+
+                    invoke update # this will also check requirements.txt if any dependency is missing
+
 
                 **Compile C++, TS and node-addon-api files**
 
@@ -502,40 +508,50 @@ On the bottom right corner we have the scale, so that ATCo can make some as assu
 User-manageable JSON configurations
 ===================================
 
-.. note::
-    **TODO**, add something here
+This is the most used way of changing SEDAS configurations. Fortunately, users do not need to edit the configurations themselves, unless they want a bigger control of the programs behavior.
+The main app settings could be changed via the graphic interface of the SEDAS settings, that is accessible through the main menu. Still, this chapter lists other configurations and also the settings formatting, so that user can manually intervene into the app functioning.
 
-For ACC
------------------------
+.. tabs::
+    .. tab:: Main settings
+    
+    .. tab:: Module config
 
-```
-TYPE: "ACC" //specify Controller type
-//Areodrome Reference Point, used to locate where Airport is until aircraft control is passsed to APP or TWR
-ARP: "none" |
-{x: "int value x 1", y: "int value y 1", name: "Airport callsign 1"}
-{x: "int value x 2", y: "int value y 2", name: "Airport callsign 2"}
-//{} brackets indicate one ARP record
-POINTS: 
-{x: "int value x 1", y: "int value y 1", name: "Point (route) callsign 1"}
-{x: "int value x 2", y: "int value y 2", name: "Point (route) callsign 2"}
-//{} brackets indicate one Point record
-//Standart Instrument Departure points (not connected by lines)
-SID: "none" |
-{x: "int value x 1", y: "int value y 1", name: "SID callsign 1"}
-{x: "int value x 2", y: "int value y 2", name: "SID callsign 2"}
-//{} brackets indicate one SID record
-//Standart Arrival Route points (connected by lines)
-STAR: "none" |
-{x: "int value x 1", y: "int value y 1", name: "STAR callsign 1"}
-{x: "int value x 2", y: "int value y 2", name: "STAR callsign 2"}
-//{} brackets indicate one STAR record
-SECTOR: //a FIR sector where an ATCO will operate, is defined by unlimited set of points (n-gon)
-{x: "int value x 1", y: "int value y 1"}
-{x: "int value x 2", y: "int value y 2"}
-{x: "int value x 3", y: "int value y 3"}
-{x: "int value x 4", y: "int value y 4"}
-//{} brackets indicate one corner of resulting shape
-```
+    .. tab:: Plugin config
 
-.. note::
-    **TODO:** organize
+    .. tab:: GUI layout (settings, plugin)
+
+    .. tab:: Environment configs
+
+        .. tabs::
+            .. tab:: Map config
+
+                .. note::
+                    By default, SEDAS ships some maps in the newly installed package. User can add its own package, but in order to do that,
+                    they need to manually get to the app resources and add the corresponding ``json`` file themselves. In the future, SEDAS will have an integrated module for app creation (**SEDAS-mapbuilder**).
+                
+                **Installing map preset manually**
+
+                **Installing map preset with the help of SEDAS-mapbuilder**
+
+            .. tab:: Airline config
+
+                .. note::
+                    **Airline presets** are not yet implemented in the backend, by now, they do not serve a purpose.
+                    But this feature will be implemented next to the planned simulation algorithm and setup.
+
+            .. tab:: Command config
+
+                .. note::
+                    **Command presets** are not yet implemented in the backend, by now, they do not serve a purpose.
+                    But this feature will be implemented next to the planned simulation algorithm and setup.
+
+            .. tab:: Planes config
+
+                .. note::
+                    **Plane presets** are not yet implemented in the backend, by now, they do not serve a purpose.
+                    But this feature will be implemented next to the planned simulation algorithm and setup.
+                    By now, the whole simulation calculates the plane physics based on the B737-800 plane (see :doc:`theory` for more info).
+
+.. note:: 
+    **Modules and Plugins** also have their own configs, but their are managed by the module/plugin itself.
+    The whole module/plugin configuration panel will be available in the next SEDAS version.

@@ -70,6 +70,7 @@ But be aware that this is going to take a time before we approach this goal.
       - `icao.int <https://www.icao.int/wacaf/documents/apirg/sg/2010/afi_opmet_mtf2/docs/wp08.pdf>`_
       - AFI OPMET database catalogue was used for assigning ICAO codes to airports in simulator
 
+#. :ref:`b_737_note`
 .. note::
     \* Currently, simulation calculates all the movement based on the values from B737-800 plane. This plane was chosen because it had open technical data and also because it was one of the most used commercial planes.
     In future, this is definitely going to change and the simulator will be supporting more planes to make simulation more diverse
