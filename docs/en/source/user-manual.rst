@@ -58,11 +58,14 @@ App installation
       - .. image:: https://img.shields.io/badge/X-red?style=flat-square
       - Release not available
 
-* https://img.shields.io/badge/OK-green?style=flat-square - Working on distro
+.. |ok| image:: https://img.shields.io/badge/OK-green?style=flat-square
+.. |warn| image:: https://img.shields.io/badge/WARN-yellow?style=flat-square
+.. |fail| image:: https://img.shields.io/badge/X-red?style=flat-square
 
-* https://img.shields.io/badge/WARN-yellow?style=flat-square - Some issues are present
+* |ok| - Working on distro  
+* |warn| - Some issues are present  
+* |fail| - Failing on distro/Not released yet
 
-* https://img.shields.io/badge/X-red?style=flat-square - Failing on distro/Not released yet
 
 .. tabs::
 
@@ -344,7 +347,31 @@ App installation
                     invoke upload
 
             .. tab:: sedas-docs
-                **TODO:** Add something
+                
+                Also not necessary for the SEDAS-manager user build, but If you want to contribute to **SEDAS** project, keep going.
+
+                **Setting up the repository**
+
+                .. code-block:: shell
+                    
+                    git clone https://github.com/SEDAS-DevTeam/sedas-docs.git
+                    cd sedas-docs
+
+                **Setting up Python virtual environment**
+
+                .. code-block:: shell
+
+                    pyenv install 3.10 #install python3.10
+                    pyenv virtualenv 3.10 sedas_docs
+                    pyenv local sedas_docs # Switches to environment
+                    pip install -r requirements.txt
+                    pip install -r ./docs/en/requirements.txt # Install the sphinx requirements
+
+                **Building documentation locally**
+
+                .. code-block:: shell
+
+                    invoke build en # for the english version (for others, supply other abbreviations: cz)
 
     .. tab:: Downloading/using prebuilt binaries
 
@@ -544,13 +571,18 @@ The main app settings could be changed via the graphic interface of the SEDAS se
 .. tabs::
     .. tab:: Main settings
     
-    .. tab:: Module config
+    .. tab:: Modules
 
-    .. tab:: Plugin config
+    .. tab:: Plugins
 
-    .. tab:: GUI layout (settings, plugin)
+    .. tab:: GUI layout
 
-    .. tab:: Environment configs
+        .. tabs::
+            .. tab:: Settings
+
+            .. tab:: Plugin
+
+    .. tab:: Environments
 
         .. tabs::
             .. tab:: Map config
