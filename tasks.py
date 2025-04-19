@@ -36,8 +36,8 @@ def write_yaml_config(path, content):
 
 @task
 def build(ctx, type):
-    if type != "en" and type != "cz":
-        print_color(PURPLE, "No documentation build was selected! (pick: en, cz)")
+    if type != "en" and type != "cs":
+        print_color(PURPLE, "No documentation build was selected! (pick: en, cs)")
         return
 
     build_dir = path.join(abs_path, f"docs/{type}/")

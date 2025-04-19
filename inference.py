@@ -1,18 +1,23 @@
 from transformers import M2M100ForConditionalGeneration, M2M100Tokenizer
+from tqdm import tqdm
+
 import os
+import torch
 
 
 class Translator:
     # currently using M2M100_418M model from Meta AI https://huggingface.co/facebook/m2m100_418M
     def __init__(self, lang):
         self.checkpoint = "facebook/m2m100_418M"
-        self.model = M2M100ForConditionalGeneration.from_pretrained(self.checkpoint)
+        self.device = "cuda" if torch.cuda.is_available() else "cpu"
+
+        self.model = M2M100ForConditionalGeneration.from_pretrained(self.checkpoint).to(self.device)
         self.tokenizer = M2M100Tokenizer.from_pretrained(self.checkpoint)
         self.tokenizer.src_lang = "en"
         self.out_lang = lang
 
     def run(self, text):
-        encoded = self.tokenizer(text, return_tensors="pt")
+        encoded = self.tokenizer(text, return_tensors="pt").to(self.device)
         generated_tokens = self.model.generate(**encoded, forced_bos_token_id=self.tokenizer.get_lang_id(self.out_lang))
 
         out = self.tokenizer.batch_decode(generated_tokens, skip_special_tokens=True)
@@ -80,7 +85,7 @@ class RstIterator:
 
             # Overwrite
             with open(file_path, "w", encoding="utf-8") as rst_file:
-                for line_input in inp_lines:
+                for line_input in tqdm(inp_lines, desc=f"→ {file}", unit="line"):
                     if Rules.is_code_block(line_input):
                         in_code_block = True
                         temp_iter = 0
@@ -92,8 +97,10 @@ class RstIterator:
 
                         if temp_iter != 1 and in_code_block:
                             in_code_block = False
+                            is_space = True
                         elif temp_iter != 1 and in_table_block:
                             in_table_block = False
+                            is_space = True
                         else:
                             # still behaves like a space
                             is_space = True
@@ -120,5 +127,5 @@ class RstIterator:
 
 if __name__ == "__main__":
     model = Translator()
-    output = model.run("This is a SEDAS-manager test")
+    output = model.run("This is a SEDAS test")
     print(output)

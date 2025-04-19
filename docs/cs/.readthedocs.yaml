@@ -1,0 +1,12 @@
+build:
+  os: ubuntu-22.04
+  tools:
+    nodejs: '19'
+    python: '3.10'
+formats: all
+python:
+  install:
+  - requirements: docs/cs/requirements.txt
+sphinx:
+  configuration: docs/cs/source/conf.py
+version: '2'
