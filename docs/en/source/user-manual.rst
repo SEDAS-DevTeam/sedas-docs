@@ -90,7 +90,7 @@ App installation
 
                 **Setting up Python virtual environment**
 
-                I recommend using ``pyenv`` for setting up project helper (for managing building, compiling, etc.), but if you are more familiar with `conda`, there is no problem of using that.
+                I recommend using ``pyenv`` for setting up project helper (for managing building, compiling, etc.), but if you are more familiar with ``conda``, there is no problem of using that.
                 All the project helper dependencies are in ``requirements.txt``
 
                 .. code-block:: shell
@@ -101,7 +101,7 @@ App installation
                     pip install -r requirements.txt # install depedendencies
 
                 .. note::
-                    This local setup created a ``.python-version`` file inside your workspace. It helps pyenv determine what virtual environment to activate.
+                    This local setup created a ``.python-version`` file inside your workspace. It helps ``pyenv`` determine what virtual environment to activate.
                     So basically you don't need to do the activation/deactivation.
 
                 **Setting up Node.js environment**
@@ -180,7 +180,7 @@ App installation
             Difference between ``publish`` and ``build`` commands is that ``publish`` also publishes the binary to Github. So you dont need to run ``build`` before publishing.
 
         .. note::
-            **The publishing wont work right now.** You would need to be authorized and have access to the organizations which is not possible for now because many aspects needs to be tweaked in the future.
+            **The publishing wont work right now.** You would need to be authorized and have access to the organisation which is not possible for now because many aspects needs to be tweaked in the future.
 
         Setting up other projects
         """"""""""""""""""
@@ -372,6 +372,14 @@ App installation
                 .. code-block:: shell
 
                     invoke build en # for the english version (for others, supply other abbreviations: cz)
+
+                **Creating own AI-powered translation**
+
+                This documentation uses Meta AI M2M_418M encoder-decoder model for multilingual translation ([huggingface](https://huggingface.co/facebook/m2m100_418M)), works really well both on CPU and GPU. This method is highly experimental and be aware that it requires user intervention (manually translating some parts) afterwards.
+
+                .. code-block:: shell
+
+                    invoke create-translation cs # for the czech version (as an example)
 
     .. tab:: Downloading/using prebuilt binaries
 

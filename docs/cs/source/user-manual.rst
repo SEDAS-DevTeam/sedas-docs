@@ -2,9 +2,9 @@
 Uživatelský manuál
 ===================================
 
-Tento manuál popisuje veškerou interakci uživatele s
-Manuál se skládá z **Installace aplikací**, **Typy oken** a všech jejich funkcí
-a **Nastavení aplikací** (typy nastavení a jejich účinky na provozní dobu aplikace)
+Tento manuál popisuje veškerou interakci uživatele s aplikací samotnou.
+Manuál se skládá z **Installace aplikace**, **Typy oken** a všech jejich funkcionalit
+a **Nastavení aplikace** (typy nastavení a jejich účinky na provozní dobu aplikace)
 
 Tabulka obsahů
 ===================================
@@ -24,376 +24,376 @@ Instalace App
 
 .. note::
 
-**V současné době projekt nemá žádné stavby**, hlavní desktopová aplikace je nyní v raném vývoji a mnoho funkcí ještě není dokončeno.
-Nicméně, brzy budete moci vidět vydání na `SEDAS github vydání <https://github.com/SEDAS-DevTeam/SEDAS-manager/releases>`_.
+**V současné době projekt nemá žádné vydání**, hlavní desktopová aplikace je nyní v raném vývoji a mnoho funkcí ještě není dokončeno.
+Nicméně, brzy budete moci vidět vydání na `SEDAS github Releases <https://github.com/SEDAS-DevTeam/SEDAS-manager/releases>`_.
 
-...
-Podporované značky:
-HTTPS://img.shields.io/badge/OK-green?style=flat-square = OK - stavět úspěšný
-HTTPS://img.shields.io/badge/WARN-žlutý?style=flat-square = WARN - některé problémy mohou být na cestě
-HTTPS://img.shields.io/badge/X-red?style=flat-square = X - stavět neúspěšný
+..
+    Podporované značky:
+    HTTPS://img.shields.io/badge/OK-green?style=flat-square = OK - stavět úspěšný
+    HTTPS://img.shields.io/badge/WARN-žlutý?style=flat-square = WARN - některé problémy mohou být na cestě
+    HTTPS://img.shields.io/badge/X-red?style=flat-square = X - stavět neúspěšný
 
 .. list-table:: List of supported OSes/distros
-:header-rows: 1
+    :header-rows: 1
 
-* * * * * * * *
-* Státní *
-* Poznámka *
-Zpět na Ubuntu 24.04
-- .. image:: https://img.shields.io/badge/X-red?style=flat-square
-Uvolnění není k dispozici
-Zpět na Ubuntu 22.04
-- .. image:: https://img.shields.io/badge/X-red?style=flat-square
-Uvolnění není k dispozici
-• Arch Linux
-- .. image:: https://img.shields.io/badge/X-red?style=flat-square
-Uvolnění není k dispozici
-• Windows 11
-- .. image:: https://img.shields.io/badge/X-red?style=flat-square
-Uvolnění není k dispozici
-• Windows 10
-- .. image:: https://img.shields.io/badge/X-red?style=flat-square
-Uvolnění není k dispozici
-• MacOS
-- .. image:: https://img.shields.io/badge/X-red?style=flat-square
-Uvolnění není k dispozici
+    * - **Name**
+      - **Status**
+      - **Note**
+    * - Ubuntu 24.04
+      - .. image:: https://img.shields.io/badge/X-red?style=flat-square
+      - Release not available
+    * - Ubuntu 22.04
+      - .. image:: https://img.shields.io/badge/X-red?style=flat-square
+      - Release not available
+    * - Arch Linux
+      - .. image:: https://img.shields.io/badge/X-red?style=flat-square
+      - Release not available
+    * - Windows 11
+      - .. image:: https://img.shields.io/badge/X-red?style=flat-square
+      - Release not available
+    * - Windows 10
+      - .. image:: https://img.shields.io/badge/X-red?style=flat-square
+      - Release not available
+    * - MacOS
+      - .. image:: https://img.shields.io/badge/X-red?style=flat-square
+      - Release not available
 
 .. |ok| image:: https://img.shields.io/badge/OK-green?style=flat-square
 .. |warn| image:: https://img.shields.io/badge/WARN-yellow?style=flat-square
 .. |fail| image:: https://img.shields.io/badge/X-red?style=flat-square
 
-*    - Práce na distro
-*Příběh - Některé problémy jsou přítomny
-*
+* |ok| - Working on distro  
+* |warn| - Some issues are present  
+* |fail| - Failing on distro/Not released yet
 
 
 .. tabs::
 
-.. tab:: Building locally
+    .. tab:: Building locally
 
-.. note::
-**Všechny stavební kroky byly testovány pro Linux distros**, takže skutečné stavební pokyny pro Windows by se pravděpodobně významně lišily.
+        .. note::
+        **Všechny stavební kroky byly testovány pro Linux distribuce**, takže skutečné stavební pokyny pro Windows by se pravděpodobně významně lišily.
 
 
-Nastavení pracoviště
-„“““““““““““
+        Nastavení pracovního prostředí
+        """"""""""""""""""
 
-.. tabs::
+        .. tabs::
 
-.. tab:: Linux
-* Připravte si zálohu*
+            .. tab:: Linux
+                **Nastavení repozitáře**
 
-.. code-block:: shell
+                .. code-block:: shell
 
-git clone --recursive https://github.com/SEDAS-DevTeam/SEDAS-manager.git
-cd SEDAS-manager
+                    git clone --recursive https://github.com/SEDAS-DevTeam/SEDAS-manager.git
+                    cd SEDAS-manager
 
-Vytvoření virtuálního prostředí Python**
+                **Vytvoření Python virtuálního prostředí**
 
-Doporučuji používat „pyenv“ pro nastavení projektového pomocníka (pro správu stavby, sběr atd.), ale pokud jste více obeznámeni s „conda“, není problém s tím používat.
-Všechny závislosti na projektovém pomocníkovi se nacházejí v „requirements.txt“
+                Doporučuji používat ``pyenv`` pro nastavení projektového pomocníka (pro správu kompilace atd.), ale pokud jste více obeznámeni s ``conda``, není problém ji používat.
+                Všechny závislosti na projektovém pomocníkovi se nacházejí v ``requirements.txt``
 
-.. code-block:: shell
+                .. code-block:: shell
 
-pyenv install 3.11 # install python3.11
-pyenv virtualenv 3.11 sedas_manager_env
-pyenv local sedas_manager_env # Switches to environment
-pip install -r requirements.txt # install depedendencies
+                    pyenv install 3.11 # install python3.11
+                    pyenv virtualenv 3.11 sedas_manager_env
+                    pyenv local sedas_manager_env # Switches to environment
+                    pip install -r requirements.txt # install depedendencies
 
-.. note::
-Toto místní nastavení vytvořilo soubor „.python-verze“ ve vašem pracovišti. pomáhá pyenv určit, které virtuální prostředí aktivovat.
-Takže v podstatě nemusíte provádět aktivace / deaktivace.
+                .. note::
+                    Toto místní nastavení vytvořilo soubor ``.python-version`` ve vašem pracovišti. To pomáhá ``pyenv`` určit, které virtuální prostředí aktivovat.
+                    Takže v podstatě nemusíte provádět aktivace/deaktivace.
 
-* Vymezení prostředí Node.js*
+                **Nastavení prostředí Node.js**
 
-Tyto projekty používají ``nvm'' (Node Version Manager, `instalace odkaz <https://github.com/nvm-sh/nvm>`_) pro správu verze Node.js, takže projekt může zůstat většinou aktuální.
-V současné době projekt používá nejnovější verzi LTS (*v22.14.0*), abyste správně nastavili prostředí, musíte provést následující kroky:
+                Projekt používá ``nvm`` (Node Version Manager, `odkaz instalace <https://github.com/nvm-sh/nvm>`_) pro správu verze Node.js, takže projekt může zůstat většinou aktuální.
+                V současné době projekt používá nejnovější verzi LTS (*v22.14.0*), abyste správně nastavili prostředí, musíte provést následující kroky:
 
-.. code-block:: shell
+                .. code-block:: shell
 
-nvm install # to install LTS version from .nvmrc file
-npm install -g npm@latext # ensure the latest version of npm
+                    nvm install # to install LTS version from .nvmrc file
+                    npm install -g npm@latext # ensure the latest version of npm
 
-Node.js prostředí je nyní nastaveno. invoke příkazy automaticky přechází na verzi uvedenou v ``.nvmrc ''.
+                Node.js prostředí je nyní nastaveno. invoke příkazy automaticky přechází na verzi uvedenou v ``.nvmrc ''.
 
-** Instalace závislostí npm**
+                **Instalace závislostí npm**
 
-.. code-block:: shell
+                .. code-block:: shell
 
-npm install
-npm install -g node-gyp # to enable addon compilation
+                    npm install
+                    npm install -g node-gyp # to enable addon compilation
 
-.. note::
+                .. note::
 
-**V současné době Ubuntu 24.04 implementoval nové omezení AppImage,** takže uživatelé nemohou spustit aplikace Electron sandboxed (`github vydání <https://github.com/electron/electron/issues/42510>`_).
-Dočasná pracovní doba je níže:
+                    **V současné době Ubuntu 24.04 implementoval nové omezení AppImage,** takže uživatelé nemohou spustit aplikace Electron sandboxed (`github issue <https://github.com/electron/electron/issues/42510>`_).
+                    Dočasný workaround je níže:
 
-.. code-block:: shell
+                    .. code-block:: shell
 
-sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0 # deactivates the restriction
-sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=1 # activates the restriction
+                        sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0 # deactivates the restriction
+                        sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=1 # activates the restriction
 
-**Zkontrolujte jakékoli aktualizace z podmodulů**
+                **Zkontrolujte jakékoli aktualizace submodules**
 
-.. code-block:: shell
+                .. code-block:: shell
 
-invoke update # this will also check requirements.txt if any dependency is missing
+                    invoke update # this will also check requirements.txt if any dependency is missing
 
 
-**Kombinace souborů C++, TS a node-addon-api**
+                **Kompilace souborů C++, TS a node-addon-api**
 
-.. code-block:: shell
+                .. code-block:: shell
 
-invoke compile
+                    invoke compile
 
-**Run aplikace v rozvojovém režimu**
+                **Běh aplikace v development režimu**
 
-.. code-block:: shell
+                .. code-block:: shell
 
-invoke devel
+                    invoke devel
 
-Všechno by mělo být na tuto chvíli připraveno :).
+                Všechno by mělo být na tuto chvíli připraveno :).
 
 
-.. tab:: Windows
+            .. tab:: Windows
 
-.. note::
-** Přidat Windows stavební pokyny**
+                .. note::
+                    **Přidat pokyny pro Windows**
 
-.. tab:: MacOS
+            .. tab:: MacOS
 
-.. note::
-** Přidat pokyny pro MacOS stavět**
+                .. note::
+                    **Přidat pokyny pro MacOS**
 
-Vytvořit a publikovat na GitHub vydání
-„“““““““““““
+        Build a publikování na GitHub releases
+        """"""""""""""""""
 
-Toolkit umožňuje vývojářům vytvářet a publikovat binární lokálně. Tato funkce je pouze pro uživatele, kteří chtějí přispět a být součástí aktivního rozvoje.
-Určitě se v této části budou dělat nějaké změny.
+        Toolkit umožňuje vývojářům vytvářet a publikovat binární soubory. Tato funkce je pouze pro uživatele, kteří chtějí přispět a být součástí aktivního rozvoje.
+        Prozatím je tato část v raném vývoji
 
-.. code-block:: shell
+        .. code-block:: shell
 
-invoke build # executes app build
-invoke publish # executes app publish to github
+            invoke build # executes app build
+            invoke publish # executes app publish to github
 
-.. note::
-Rozdíl mezi příkazem "publikovat" a "budovat" je v tom, že "publikovat" také publikuje binární na GitHub.
+        .. note::
+            Rozdíl mezi příkazem ``publish`` a ``build`` je v tom, že ``publish`` také publikuje binární soubor na GitHub. Takže nemusíte spouštět ``build`` před publikováním.
 
-.. note::
-**Vydávání nebude fungovat právě teď.** Musíte být oprávněni a mít přístup k organizacím, které nejsou v současné době možné, protože mnoho aspektů bude v budoucnu nutné přehodnotit.
+        .. note::
+            **Vydávání není prozatím funkční.** Musíte být oprávněni a mít přístup k organizaci, což není v současné době možné, protože mnoho aspektů bude v budoucnu nutné přehodnotit.
 
-Vytvoření dalších projektů
-„“““““““““““
+        Nastavení dalších projektů
+        """"""""""""""""""
 
-Tato část je zcela volitelná. je to právě tady, aby ukázal lidem, kteří chtějí podílet se na vývoji, jak nastavit další SEDAS sklady také.
+        Tato část je zcela volitelná. Je zde právě pro lidi, kteří se chtějí podílet se na vývoji.
 
-.. tabs::
+        .. tabs::
 
-.. tab:: SEDAS-AI-backend
+            .. tab:: SEDAS-AI-backend
 
-Tento modul je již postaven uvnitř správce SEDAS jako podmodul, takže prakticky není nutné ho postavit sami.
-Ale pokud se chcete podílet na vývoji podpory SEDAS-AI, můžete následovat tyto kroky:
+                Tento modul je již postaven uvnitř SEDAS-manager jako podmodul, takže prakticky není nutné si ho sestavit.
+                Ale pokud se chcete podílet na vývoji podpory SEDAS-AI-backend, můžete následovat tyto kroky:
 
-* Připravte si zálohu*
+                **Nastavení repozitáře**
 
-.. code-block:: shell
+                .. code-block:: shell
 
-git clone --recursive https://github.com/SEDAS-DevTeam/SEDAS-AI-backend.git
-cd SEDAS-AI-backend
+                    git clone --recursive https://github.com/SEDAS-DevTeam/SEDAS-AI-backend.git
+                    cd SEDAS-AI-backend
 
-Vytvoření virtuálního prostředí Python**
+                **Vytvoření Python virtuálního prostředí**
 
-.. code-block:: shell
+                .. code-block:: shell
 
-pyenv install 3.11 # install python3.11
-pyenv virtualenv 3.11 sedas_backend_env
-pyenv local sedas_backend_env # Switches to environment
-pip install -r requirements.txt # install depedendencies
+                    pyenv install 3.11 # install python3.11
+                    pyenv virtualenv 3.11 sedas_backend_env
+                    pyenv local sedas_backend_env # Switches to environment
+                    pip install -r requirements.txt # install depedendencies
 
-cd src # přepínat na pracovat dir (kde se nachází tasks.py)
+                    cd src # přepínat na pracovat dir (kde se nachází tasks.py)
 
-**Využití všech zdrojů modelu ASR/TTS**
+                **Získání všech zdrojů ASR/TTS**
 
-.. code-block:: shell
+                .. code-block:: shell
 
-invoke fetch-resources
+                    invoke fetch-resources
 
-.. note::
-**Buďte si vědomi**, že by to pravděpodobně trvalo nějakou dobu. pomocník potřebuje získat ATC-whisper binární z 'huggingface repository <https://huggingface.co/HelloWorld7894/SEDAS-whisper>`_ a také některé TTS binární z Piper webového zdroje.
+                .. note::
+                    **Buďte si vědomi**, že toto pravděpodobně bude nějakou dobu trvat. Pomocník potřebuje získat ATC-whisper binární soubory z `huggingface repozitáře <https://huggingface.co/HelloWorld7894/SEDAS-whisper>`_ a také některé TTS soubory z webového zdroje Piper.
 
-**Building whisper.cpp závislost**
+                **Sestavení whisper.cpp závislosti**
 
-.. code-block:: shell
+                .. code-block:: shell
 
-invoke build-deps
+                    invoke build-deps
 
-.. note::
-Tento krok by také trval nějaký čas, `whisper.cpp <https://github.com/ggml-org/whisper.cpp>`_ potřebuje vytvořit vápník, který bude vyzývat model ATC-whisper na začátku simulace.
-Takže pokud sestavíte verzi CUDA (to je nastaveno dle výchozího nastavení), tento proces pravděpodobně trvá nějakou dobu.
+                .. note::
+                    Tento krok by také trval nějaký čas, `whisper.cpp <https://github.com/ggml-org/whisper.cpp>`_ potřebuje vytvořit wrapper, který bude zapínat model ATC-whisper na začátku simulace.
+                    Takže pokud sestavujete verzi CUDA (to je nastaveno dle výchozího nastavení), tento proces pravděpodobně nějakou dobu potrvá.
 
-* Budování celého projektu *
+                **Build celého projektu**
 
-* pro testování *
+                **Pro testování**
 
-.. code-block:: shell
+                .. code-block:: shell
 
-# for running a test
-invoke build --DTESTING=ON
-invoke run test
+                    # for running a test
+                    invoke build --DTESTING=ON
+                    invoke run test
 
-Pro „test“ vykonatelný, můžete ovládat ASR a TTS jednoduše pomocí klávesnice invokes (tj. klíč „a“ pro začátek / zastavení nahrávání a klíč „q“ pro zabíjení celého programu).
+                Pro ``test`` executable můžete ovládat ASR a TTS jednoduše pomocí klávesnice (tj. klávesa ``a`` pro začátek / zastavení nahrávání a klávesa ``q`` pro zastavení celého programu).
 
-* Pro integraci *
+                **Pro integraci**
 
-.. code-block:: shell
+                .. code-block:: shell
 
-# to test the actual executable that is going to be integrated in SEDAS
-invoke build --DTESTING=OFF
-invoke run main
+                    # to test the actual executable that is going to be integrated in SEDAS
+                    invoke build --DTESTING=OFF
+                    invoke run main
 
-Pro „hlavní“ prováděcí, k testování komunikace, musíte spustit další skript na jiném terminálním okně (to je proto, že integrační skript komunikuje pomocí socketové komunikace na konkrétním portu „65 432“).
+                Pro ``main`` executable k testování komunikace musíte spustit další skript na jiném okně terminálu (to je proto, že integrační skript komunikuje pomocí socketové komunikace na konkrétním portu ``65 432``).
 
-.. code-block:: shell
+                .. code-block:: shell
 
-invoke test-main # runs the "commander" script that controls the "main" one
+                    invoke test-main # runs the "commander" script that controls the "main" one
 
-.. note::
-** Bohužel**, „hlavní“ prováděcí v současné době komunikuje na konkrétním přístavu, který není změněný.
-To se určitě v budoucnu změní
+                .. note::
+                    **Bohužel**, ``main`` executable v současné době komunikuje na konkrétním portu, který není možno změnit.
+                    To se však určitě v budoucnu změní
 
-Použití „test-main“ scénáře:
+                Použití skriptu ``test-main``:
 
-.. code-block:: shell
+                .. code-block:: shell
 
-register  [callsign (string)] [noise-intensity (float)] # registers a pseudopilot to communicate with user (write without brackets)
+                    register  [callsign (string)] [noise-intensity (float)] # registers a pseudopilot to communicate with user (write without brackets)
 
-Start-mic # začíná nahrávání mikrofonů
-Stop-mic # stops mikro nahrávání
+                    start-mic # začíná nahrávání mikrofonů
+                    stop-mic # stops mikro nahrávání
 
-#
-# Udělejte zde nějakou komunikaci pomocí start-mic nebo stop-mic
-#
+                    #
+                    # Udělejte zde nějakou komunikaci pomocí start-mic nebo stop-mic
+                    #
 
-Unregister [callsign (string)] # unregister/terminate pseudopilot
-ukončit # ukončit hlavní program
+                    unregister [callsign (string)] # unregister/terminate pseudopilot
+                    ukončit # ukončit hlavní program
 
-.. tab:: ATC-whisper
+            .. tab:: ATC-whisper
 
-Tento sklad je v současné době používán pouze pro výzkumné účely, takže je zcela vyloučen z celého potrubí SEDAS-manager.
-Normální uživatel ho nepotřebuje postavit, protože sedas automaticky získává odpovídající binary z 'huggingface repository <https://huggingface.co/HelloWorld7894/SEDAS-whisper>`_.
-Tak následujte tento repo, pokud se chcete podílet na výzkumu a provádění pro lepší ASR model.
+                Tento repozitář je v současné době používán pouze pro výzkumné účely, takže je zcela vyloučen z celého potrubí SEDAS-manager.
+                Normální uživatel ho nepotřebuje postavit, protože sedas automaticky získává odpovídající binary z `huggingface repozitáře <https://huggingface.co/HelloWorld7894/SEDAS-whisper>`_.
+                Tak následujte tento repo, pokud se chcete podílet na výzkumu a provádění pro lepší ASR model.
 
-.. note::
-**V současné době**, ATC-whisper nepodporuje výcvik vlastní přizpůsobený model whisper, jen realizuje konverzi `whisper-ATC-czech-full <https://huggingface.co/BUT-FIT/whisper-ATC-czech-full>`_ (přizpůsobené váhy) do
-model v „GGML“ formátu.Ale v budoucnu bude projekt umožňovat školení přizpůsobených modelů na ATCOSIM a dalších databázích.
+                .. note::
+                    **V současné době**, ATC-whisper nepodporuje výcvik vlastní přizpůsobený model whisper, jen realizuje konverzi `whisper-ATC-czech-full <https://huggingface.co/BUT-FIT/whisper-ATC-czech-full>`_ (přizpůsobené váhy) do
+                    model v ``GGML`` formátu. Ale v budoucnu bude projekt umožňovat trénování přizpůsobených modelů na ATCOSIM a dalších datasetech.
 
-* Připravte si zálohu*
+                **Nastavení repozitáře**
 
-.. code-block:: shell
+                .. code-block:: shell
 
-git clone --recursive https://github.com/SEDAS-DevTeam/ATC-whisper.git
-cd ATC-whisper
+                    git clone --recursive https://github.com/SEDAS-DevTeam/ATC-whisper.git
+                    cd ATC-whisper
 
-Vytvoření virtuálního prostředí Python**
+                **Vytvoření Python virtuálního prostředí**
 
-.. code-block:: shell
+                .. code-block:: shell
 
-conda env create -f environment.yaml
-conda activate atc_whisper # use conda deactivate for env deactivation
+                    conda env create -f environment.yaml
+                    conda activate atc_whisper # use conda deactivate for env deactivation
 
-CD src # dostat do práce dir
+                    cd src # dostat do adresáře dir
 
-**Download zdrojů**
+                **Download zdrojů**
 
-.. code-block:: shell
+                .. code-block:: shell
 
-invoke download
-# use: invoke download -t="repo" to download SEDAS-whisper huggingface repo
-# use: invoke download -t="model" to download whisper-ATC-czech-full resources
+                    invoke download
+                    # use: invoke download -t="repo" to download SEDAS-whisper huggingface repo
+                    # use: invoke download -t="model" to download whisper-ATC-czech-full resources
 
-**Build whisper.cpp binary** (pouze pro testování závěry modelu whisper)
+                **Build whisper.cpp binary** (pouze pro testování inference modelu whisper)
 
-.. code-block:: shell
+                .. code-block:: shell
 
-invoke build
+                    invoke build
 
-.. note::
-**Buďte si vědomi**, že to bude trvat nějakou dobu, protože whisper.cpp potřebuje vybudovat celý whisper wrapper binární. proces může být mnohem delší, pokud je vybudován s podporou CUDA (která je nyní dle předvolby).
+                .. note::
+                    **Buďte si vědomi**, že to bude trvat nějakou dobu, protože whisper.cpp potřebuje vybudovat celý Whisper wrapper. Proces může být mnohem delší, pokud je stavěn s podporou CUDA (která je nyní dle navolena by default).
 
-**Konvertovat Pytorch binární na GGML binární**
+                **Konverze Pytorch modelu na GGML**
 
-.. code-block:: shell
+                .. code-block:: shell
 
-invoke convert bin-to-ggml
+                    invoke convert bin-to-ggml
 
-* zkušební závěr *
+                **Testování inference**
 
-.. code-block:: shell
+                .. code-block:: shell
 
-invoke run-infer
+                    invoke run-infer
 
-**Ukládání modifikovaného obsahu do Huggingface** (působí pouze pro ověřené uživatele s vlastním tokenem)
+                **Ukládání modifikovaného obsahu do Huggingface** (pouze pro ověřené uživatele s vlastním tokenem)
 
-Token je uložen na „token.yaml“ v kořenu projektu (musíte ho vytvořit sami), formátování je odpovídající:
+                Token je uložen na ``token.yaml`` v rootu projektu (musíte ho vytvořit sami), formátování je odpovídající:
 
-.. code-block:: yaml
+                .. code-block:: yaml
 
-token: <your huggingface token>
+                    token: <your huggingface token>
 
-Chcete-li nahrát modifikovaný obsah, spustit tento příkaz:
+                Chcete-li nahrát modifikovaný obsah, spustit tento příkaz:
 
-.. code-block:: shell
+                .. code-block:: shell
 
-invoke upload
+                    invoke upload
 
-.. tab:: sedas-docs
+            .. tab:: sedas-docs
 
-Také není nutné pro stavbu uživatele SEDAS-Manager, ale pokud chcete přispět k projektu **SEDAS**, pokračujte.
+                Také není nutné pro stavbu uživatele SEDAS-Manager, ale pokud chcete přispět k projektu **SEDAS**, pokračujte.
 
-* Připravte si zálohu*
+                **Připravení repozitáře**
 
-.. code-block:: shell
+                .. code-block:: shell
 
-git clone https://github.com/SEDAS-DevTeam/sedas-docs.git
-cd sedas-docs
+                    git clone https://github.com/SEDAS-DevTeam/sedas-docs.git
+                    cd sedas-docs
 
-Vytvoření virtuálního prostředí Python**
+                **Vytvoření Python virtuálního prostředí**
 
-.. code-block:: shell
+                .. code-block:: shell
 
-pyenv install 3.10 #install python3.10
-pyenv virtualenv 3.10 sedas_docs
-pyenv local sedas_docs # Switches to environment
-pip install -r requirements.txt
-pip install -r ./docs/en/requirements.txt # Install the sphinx requirements
+                    pyenv install 3.10 #install python3.10
+                    pyenv virtualenv 3.10 sedas_docs
+                    pyenv local sedas_docs # Switches to environment
+                    pip install -r requirements.txt
+                    pip install -r ./docs/en/requirements.txt # Install the sphinx requirements
 
-*Dokumentace na místní úrovni*
+                **Sestavení dokumentace lokálně**
 
-.. code-block:: shell
+                .. code-block:: shell
 
-invoke build en # for the english version (for others, supply other abbreviations: cz)
+                    invoke build en # for the english version (for others, supply other abbreviations: cz)
 
-.. tab:: Downloading/using prebuilt binaries
+    .. tab:: Downloading/using prebuilt binaries
 
-.. tabs::
-.. tab:: Linux
+        .. tabs::
+            .. tab:: Linux
 
-.. note::
-Projekt ještě nebyl postaven
+                .. note::
+                    Projekt ještě nebyl sestaven
 
-.. tab:: Windows
+            .. tab:: Windows
 
-.. note::
-Projekt ještě nebyl postaven
+                .. note::
+                    Projekt ještě nebyl sestaven
 
-.. tab:: MacOS
+            .. tab:: MacOS
 
-.. note::
-Projekt ještě nebyl postaven
+                .. note::
+                    Projekt ještě nebyl sestaven
 
 .. _Windows:
 
-Windows a jeho funkce
+Okna a jejich funkce
 ===================================
 
 Typy oken
@@ -404,25 +404,25 @@ V současné době se používají tyto typy oken:
 .. _Main menu:
 
 Hlavní menu
-„“““““““““““
+""""""""""""""""""
 
 Na začátku desktopové aplikace je uživatel vítán hlavním menu okna. Tento okno má pouze 3 tlačítka, které přesměrují uživatele
 v různých částech aplikace.
 
-* **Start** - Tento tlačítko aktivuje backend SEDAS a další moduly, a také spolu s tím iniciuje všechny okna, které se budou používat (‘Kontrola okna‘, ‚Worker okna‘ (1 .. N - 1), N - definuje číselné monitory připojené)
+* **Start** - Toto tlačítko aktivuje backend SEDAS a další moduly, a také spolu s tím iniciuje všechny okna, které se budou používat (`Controller window`, `Worker windows` (1 .. N - 1), N - definuje počet připojených monitorů)
 
-* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* **Settings** - Odkazuje uživatele na okno nastavení
 
 * **Reload last session** - Vzhledem k tomu, že aplikace má funkci pravidelného zálohování, uživatel má možnost obnovit poslední session z posledního zálohování, které je k dispozici.
 
 
 .. note::
-**Reload tlačítko je prozatím vymazáno**, poslední zotavení se zatím neprovádí.
+    **Reload tlačítko je prozatím zašedlé**, recovery poslední zálohy prozatím není implementováno.
 
 .. _Settings:
 
 nastavení
-„“““““““““““
+""""""""""""""""""
 
 .. image:: imgs/pic/settings.png
 
@@ -433,112 +433,112 @@ Z hlediska životního prostředí a také pseudopilotního chování AI.
 .. _Controller:
 
 Kontrolní okno
-„“““““““““““
+""""""""""""""""""
 
 To je nejdůležitější okno v celé aplikaci. kategorizuje uživatelské akce do několika tabulek (Nastavení, Simulace, Wiki, Monitory, Plugins), které jsou vysvětleny níže.
 Dokumentace je formátována do různých kategorií, které vysvětlují konkrétní okno.
 
 .. tabs::
-.. tab:: Setup tab
+    .. tab:: Setup tab
 
-.. figure:: imgs/pic/controller_setup.png
-Srovnání: Centrum
+        .. figure:: imgs/pic/controller_setup.png
+            :align: center
 
-Ovladač Setup Tab
+            Controller Setup tab
 
-Simulace SEDAS jsou rozděleny do dvou kategorií: **Planned** a **Unplanned**.
+        Simulace SEDAS jsou rozděleny do dvou kategorií: **Planned** a **Unplanned**.
 
-* Plánované simulace *
+        **Plánované simulace**
 
-Uživatel může nastavit plánované simulace v tabulce nastavení, když vyberou mapu (a odpovídající scénář), předem nastavení letadla a předem nastavení příkazů s dodatečnými tweaks.
-Po tom simulátor určí a nastaví tak simulace.Varianty, které jsou uživatelem přepínavé, jsou vysvětleny níže:
+        Uživatel může nastavit plánované simulace v tabulce nastavení, když vyberou mapu (a odpovídající scénář), předem nastavení letadla a předem nastavení příkazů s dodatečnými tweaks.
+        Po tom simulátor určí a nastaví tak simulace.Varianty, které jsou uživatelem přepínavé, jsou vysvětleny níže:
 
-* **Map** - zde může uživatel vybrat konkrétní mapu / letiště, které bude použito v simulace.Každá mapa má svůj typ podle klasifikace zóny ATC (ACC, TWR a APP).Ty mají také označený kód letiště ICAO (pokud je mapa označena jako letiště), Krajina a Město (může být ponechán prázdný, pokud simulace nebude přesměrován na skutečné místo) a popis (také volitelné).
+        * **Map** - here, user can select a specific map/airport that will be used in the simulation. Every map has its type according to ATC zone classification (ACC, TWR and APP). They also have designated ICAO airport code (if the map is designated as an airport), Country and City (could be left empty if the simulation doesnt redirect to actual place) and the description (also optional).
+        
+        * **Scenario** - Every map has its own predefined sets of scenarios, that define what plane types are going to be used in the simulation and also other key aspects (time of plane spawning, special situations). Every map has different scenarios.
+        
+        * **Scenario adjustment** - User can adjust selected scenarios. Currently, scenario adjustments just allow to exclude WTC (Wake Turbulence - **UL**\ tralight, **L**\ ight, **M**\ edium, **H**\ eavy, **J** - Super) or CAT (aircraft category - **AI**\ rplane, **HE**\ licopter, **GL**\ ider, **AE**\ rostat) categories.
+        
+        * **Scenario time** - User can select the time of scenario (this setting is just aesthetic, so it could be left at random, which generates random time and date)
+        
+        * **Aircraft preset** - Allows user to select specific types of planes (planes from only one manufacturer, etc.). User can inspect the preset before selecting it.
+        
+        * **Commands preset** - Allows user to select specific commands that are going to be allowed in the simulation. Other commands are not going to be accepted by AI pseudopilots.
 
-* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+        .. note::
+            **V současné době plánované simulace zatím nefungují.** To je proto, že implementace simulace nastavení motoru je docela těžké a vyžaduje zavedení mnoha pravidel a výjimek při jeho implementaci.
+            Při jeho provádění je tedy doporučeno, aby uživatel používal **Neplánované simulace**.
 
-* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+        **Neplánované simulace**
 
-* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+        Každá mapa umožňuje uživateli nastavit každou předvolbu na prázdnou. To znamená, že simulátor bude nastaven na výchozí a nulové výjimky budou použity na simulace.
+        Simulace by byla prázdná a zobrazí se pouze vybraná mapa.Po tom, uživatel může volně šroubovat letadla v tabulce **Simulace**, takže simulace je řízen uživatelem.
 
-* **Přeset letadel** - Umožňuje uživateli vybrat určité typy letadel (plány od jediného výrobce atd.).
+    .. tab:: Monitors tab
 
-* **Připravte příkazy** - Umožňuje uživateli vybrat konkrétní příkazy, které budou povoleny v simulaci.
+        .. figure:: imgs/pic/monitors.png
+            :align: center
 
-.. note::
-**V současné době plánované simulace zatím nefungují.** To je proto, že implementace simulace nastavení motoru je docela nudné a vyžaduje zavedení mnoha pravidel a výjimek
-Při jeho provádění je doporučeno, aby uživatel používal **Neplánované simulace** cestu.
+            Ovládání monitorů Tab
 
-* Neplánované simulace *
+        Simulátor umožňuje uživateli přizpůsobit několik okenních příkladů. samotná aplikace je navržena tak, aby pracovala na nastavení více monitorů. Doporučený počet monitorů je v současné době 2 (jeden pro kartu Controller, druhý pro kartu Fro Worker (ATCo).
+        Nicméně, aplikace také pracuje pouze na jednom nastavení monitoru ( okna by se přesto překrývala). Uživatel může vybrat, jaké chování by konkrétní okno / monitor měl.
+        Možnosti jsou uvedeny níže:
 
-Každá mapa umožňuje uživateli nastavit každou předvolbu na prázdnou. To znamená, že simulátor bude nastaven na výchozí a nulové výjimky budou použity na simulace.
-Simulace by byla prázdná a zobrazí se pouze vybraná mapa.Po tom, uživatel může volně šroubovat letadla v tabulce **Simulace**, takže simulace je řízen uživatelem.
+        * **TWR** - Tower view for the simulation (Map has to support TWR)
+        
+        * **APP** - Approach view for the simulation (Map has to support APP)
+        
+        * **ACC** - Area control view for the simulation (Map has to support ACC)
+        
+        * **weather** - Embeds weather data into simulation (Map has to point into specific place on the earth - Country and City tags cannot be empty when selected)
+        
+        * **dep_arr** - Departure/Arrival view for the currently activated planes.
+        
+        * **embed** - Allows user to embed external web resource from the URL.
 
-.. tab:: Monitors tab
+        .. note::
+            Simulátor v současné době podporuje pouze **ACC**, **veather** a **dep_arr** zobrazení.
 
-.. figure:: imgs/pic/monitors.png
-Srovnání: Centrum
+    .. tab:: Simulation tab
 
-Ovládání monitorů Tab
+        .. figure:: imgs/pic/controller_sim.png
+            :align: center
 
-Simulátor umožňuje uživateli přizpůsobit několik okenních příkladů. samotná aplikace je navržena tak, aby pracovala na nastavení více monitorů. Doporučený počet monitorů je v současné době 2 (jeden pro kartu Controller, druhý pro kartu Fro Worker (ATCo).
-Nicméně, aplikace také pracuje pouze na jednom nastavení monitoru ( okna by se přesto překrývala). Uživatel může vybrat, jaké chování by konkrétní okno / monitor měl.
-Možnosti jsou uvedeny níže:
+            Ovladač simulace tab
 
-* **TWR** - Tower View pro simulace (Map musí podporovat TWR)
+        V tabulce simulace může uživatel ovládat chování simulace. To není opravdu nutné v **Planovaných simulacích**, ale docela důležité v **Neplanovaných simulacích**.
+        Na vrcholu, uživatel může ovládat stav simulace. Poté máme letadlo spouštěcí část. Tam můžeme nastavit název letadla (náhodně generované nebo vytisknuté) a
+        počáteční hodnocení, úroveň a rychlost.Můžeme také určit konkrétní odletové a příjezdové body na letadlo.
 
-* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+        .. note::
+            **Možnosti: Typ letadla a Monitor** ještě nejsou funkční. nejsou v nastavení simulace letadla relevantní, takže v budoucnu je buď odstraníme, nebo je provedeme tak, aby byly funkční.
 
-* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+        Po potvrzení letadla bude letadlo spouštět na okně ATCo a uvidíme nový panel otevřen v kategorii Ovládání letadla.
+        Tento panel je určen pouze pro základní opravu, není nutný, protože jeho funkčnost je doplněna pseudopiloty AI (tj. uživatel ovládá všechny variabily letadla verbálně).
 
-* ** počasí** - Vkládá údaje o počasí do simulace (Mapa musí označit určité místo na Zemi - Země a město značky nemohou být prázdné při výběru)
+        Poslední část je terminál letadla. zde může uživatel vidět všechny záznamy o letadlech reagujících na příkazy ATCo a také změny názvu, úrovně a projevu provedené letadlem.
 
-* **dep_arr** - zobrazení odletu/príchodu pro aktuálně aktivované letadla.
+    .. tab:: Plugins tab
 
-* **embed** - Umožňuje uživateli začlenit externí webový zdroj z URL.
+        .. note::
+            **Plugin GUI ještě není dokončen**, projekt potřebuje nějaký přepracování implementací pluginu.
 
-.. note::
-Simulátor v současné době podporuje pouze **ACC**, **veather** a **dep_arr** zobrazení.
+    .. tab:: Wiki tab
 
-.. tab:: Simulation tab
+        .. figure:: imgs/pic/wiki.png
+            :align: center
 
-.. figure:: imgs/pic/controller_sim.png
-Srovnání: Centrum
+            Controller Wiki tab
 
-Ovladač Simulační tab
-
-V tabulce simulace může uživatel ovládat chování simulace. To není opravdu nutné v **Planovaných simulacích**, ale docela důležité v **Neplanovaných simulacích**.
-Na vrcholu, uživatel může ovládat stav simulace. Poté máme letadlo spouštěcí část. Tam můžeme nastavit název letadla (náhodně generované nebo vytisknuté) a
-počáteční hodnocení, úroveň a rychlost.Můžeme také určit konkrétní odletové a příjezdové body na letadlo.
-
-.. note::
-** Možnosti: Typ letadla a Monitor** ještě nejsou funkční. nejsou v nastavení simulace letadla relevantní, takže v budoucnu je buď odstraníme, nebo je provedeme funkčně.
-
-Po potvrzení letadla bude letadlo spouštět na okně ATCo a uvidíme nový panel otevřen v kategorii Ovládání letadla.
-Tento panel je určen pouze pro základní opravu, není nutný, protože jeho funkčnost je doplněna pseudopiloty AI (tj. uživatel ovládá všechny variabily letadla verbálně).
-
-Poslední část je terminál letadla. zde může uživatel vidět všechny záznamy o letadlech reagujících na příkazy ATCo a také změny názvu, úrovně a projevu provedené letadlem.
-
-.. tab:: Plugins tab
-
-.. note::
-**Plugin GUI ještě není dokončen**, projekt potřebuje nějaký přepracování implementací pluginu.
-
-.. tab:: Wiki tab
-
-.. figure:: imgs/pic/wiki.png
-Srovnání: Centrum
-
-Přehrávač Wiki tab
-
-Simulátor je určen pro lidi, kteří jsou začátečníky v ATC. Z tohoto důvodu je okno ovládacího prvku určeno pouze pro dokumentaci.
-Uživatel může přepínat mezi **SEDAS** a **IVAO** dokumentací (která také obsahuje zajímavé údaje o ATC).
-je spolehlivým zdrojem ATC spravovaným společností EUROCONTROL.
+        Simulátor je určen pro lidi, kteří jsou začátečníky v ATC. Z tohoto důvodu je okno ovládacího prvku určeno pouze pro dokumentaci.
+        Uživatel může přepínat mezi **SEDAS** a **IVAO** dokumentací (která také obsahuje zajímavé údaje o ATC).
+        je spolehlivým zdrojem ATC spravovaným společností EUROCONTROL.
 
 .. _Worker:
 
 Pracovní okno (ATCo)
-„“““““““““““
+""""""""""""""""""
 
 .. image:: imgs/pic/worker.png
 
@@ -554,12 +554,12 @@ Simulační režimy
 
 V současné době aplikace podporuje dva režimy ATC simulací: **plánované** a **neplánované** simulace.
 
-* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* **Planned simulations -** For the user, these ones are easier to set up. Only thing user needs to do is setting up the simulation in the :ref:`Controller` (more specificaly, the setup tab). Here, user specifies map, its corresponding scenario, some adjustments, aircraft presets, command presets and scenario time. After user clicks on the *Confirm and setup* button, the app starts its environment handler which then sets up all the monitors and also the whole ATC environment. After that, user can just click on the ``START`` button in the *Simulation tab*. After that, the simulation is set up and running. (User can then do some small tweaks in the terms of plane handling etc.)
 
-* **Neplánované simulace -** Každá mapa podporuje prázdný scénář. Když uživatel vybere tento, zatímco nastavuje i zbytek předvoleb, a stisknutím tlačítka *Přesvědčte se a nastavte*, aplikace nebude zahájit své environmentální manipulaci, protože zjistí, že neexistuje žádný scénář k dispozici. Jediná věc, kterou bude nastaven, je mapa a zbytek předvoleb (letadla, příkazy).
+* **Unplanned simulations -** Every map supports an empty scenario. When user selects this, while also setting up the rest of presets, and pressing the *Confirm and setup* button, the app will not start its environment handler, because it detected that there is no scenario available. The only thing it will set up is the map and the rest of presets (aircrafts, commands). So in order to spawn any planes in the user-specified map, user needs to spawn planes manually, which is done in the *Simulation tab*.
 
 .. note::
-**V současné době aplikace podporuje pouze neplánované simulace**, plánovaný mechanismus nastavení simulace je stále v rozvoji.
+    **V současné době aplikace podporuje pouze neplánované simulace**, plánovaný mechanismus nastavení simulace je stále v rozvoji.
 
 .. _Configurations:
 Uživatelská konfigurace JSON
@@ -569,52 +569,52 @@ Naštěstí uživatelé nepotřebují upravovat samotné konfigurace, pokud nech
 Hlavní nastavení aplikace lze změnit prostřednictvím grafického rozhraní nastavení SEDAS, který je přístupný prostřednictvím hlavního menu. Nicméně, tato kapitola popisuje další konfigurace a také nastavení formátování, takže uživatel může ručně zasahovat do funkce aplikace.
 
 .. tabs::
-.. tab:: Main settings
+    .. tab:: Main settings
 
-.. tab:: Modules
+    .. tab:: Modules
 
-.. tab:: Plugins
+    .. tab:: Plugins
 
-.. tab:: GUI layout
+    .. tab:: GUI layout
 
-.. tabs::
-.. tab:: Settings
+        .. tabs::
+            .. tab:: Settings
 
-.. tab:: Plugin
+            .. tab:: Plugin
 
-.. tab:: Environments
+    .. tab:: Environments
 
-.. tabs::
-.. tab:: Map config
+        .. tabs::
+            .. tab:: Map config
+
+            .. note::
+                Ve výchozím nastavení SEDAS vloží některé mapy v nově nainstalovaném balíčku. Uživatel může přidat vlastní balíček, ale s cílem to udělat,
+                Musí se manuálně dostat do zdrojů aplikací a přidat odpovídající „json“ soubor sám. V budoucnu bude SEDAS mít integrovaný modul pro tvorbu aplikací (**SEDAS-mapbuilder**).
+
+            **Instalace mapy předem manuálně**
+
+            **Instalace mapy předem pomocí SEDAS-mapbuilder**
+
+            .. tab:: Airline config
+
+                .. note::
+                    **Nastavení leteckých společností** se zatím v pozadí neprovádí, zatím slouží k žádnému účelu.
+                    Ale tato funkce bude implementována vedle plánovaného algoritmu simulace a nastavení.
+                    V současné době nejsou ani volitelné v tabulce *Nastavení*, protože provozovatel prostředí ještě není dokončen, a proto by v podstatě sloužil jako žádný účel.
+
+            .. tab:: Command config
+
+                .. note::
+                    **Nastavení pro příkazy** se zatím v pozadí neprovádí, zatím slouží k žádnému účelu.
+                    Ale tato funkce bude implementována vedle plánovaného algoritmu simulace a nastavení.
+
+            .. tab:: Planes config
+
+                .. note::
+                    **Nastavení pro letadla** nejsou v pozadí dodnes implementovány, zatím slouží k žádnému účelu.
+                    Ale tato funkce bude implementována vedle plánovaného algoritmu simulace a nastavení.
+                    K dnešnímu dni celá simulace vypočítá leteckou fyziku na základě letadla B737-800 (viz :doc:`teorie` pro více informací).
 
 .. note::
-Ve výchozím nastavení SEDAS vloží některé mapy v nově nainstalovaném balíčku. Uživatel může přidat vlastní balíček, ale s cílem to udělat,
-Musí se manuálně dostat do zdrojů aplikací a přidat odpovídající „json“ soubor sám. V budoucnu bude SEDAS mít integrovaný modul pro tvorbu aplikací (**SEDAS-mapbuilder**).
-
-** Instalace mapy předem manuálně**
-
-**Instalace mapy předem pomocí SEDAS-mapbuilder**
-
-.. tab:: Airline config
-
-.. note::
-**Příslušenství letecké společnosti** se zatím v pozadí neprovádí, zatím slouží k žádnému účelu.
-Ale tato funkce bude implementována vedle plánovaného algoritmu simulace a nastavení.
-V současné době nejsou ani volitelné v tabulce *Nastavení*, protože provozovatel prostředí ještě není dokončen, a proto by v podstatě sloužil jako žádný účel.
-
-.. tab:: Command config
-
-.. note::
-**Příslušenství pro příkaz** se zatím v pozadí neprovádí, zatím slouží k žádnému účelu.
-Ale tato funkce bude implementována vedle plánovaného algoritmu simulace a nastavení.
-
-.. tab:: Planes config
-
-.. note::
-**Planové předměty** nejsou v pozadí dodnes implementovány, zatím slouží k žádnému účelu.
-Ale tato funkce bude implementována vedle plánovaného algoritmu simulace a nastavení.
-K dnešnímu dni celá simulace vypočítá leteckou fyziku na základě letadla B737-800 (viz :doc:`teorie` pro více informací).
-
-.. note::
-**Moduly a pluginy mají také své vlastní konfigurace, ale jsou spravovány samotným modulem/pluginem.
-Celý panel konfigurace modulů/pluginů bude k dispozici v následující verzi SEDAS.
+    **Moduly a pluginy** mají také své vlastní konfigurace, ale jsou spravovány samotným modulem/pluginem.
+    Celý panel konfigurace modulů/pluginů bude k dispozici v následující verzi SEDAS.
