@@ -2,6 +2,10 @@
 ATC theory
 ===================================
 
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+
 Table of contents
 ===================================
 #. :ref:`Sources`

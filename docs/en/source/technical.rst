@@ -1,6 +1,10 @@
-===================
+===================================
 Technical background
-===================
+===================================
+
+.. toctree::
+   :maxdepth: 2
+   :hidden:
 
 Table of contents
 ===================================
@@ -12,7 +16,7 @@ Table of contents
 
 .. _Technologies:
 Used technologies
-============
+===================================
 
 Application itself uses a lot of technologies to implement many of its parts. For example it utilises localhost sockets communication for the communication between main app and AI module. This page will try to explain all the technical approaches that were used in the development.
 
@@ -60,7 +64,7 @@ The whole code is 100% open-source and every part of it is available on the Gith
 
 .. figure:: imgs/schema/project_structure.png
 
-  Major SEDAS projects and their versioning
+  Major SEDAS projects and their licenses
 
 .. _Schematic:
 App schematic

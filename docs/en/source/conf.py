@@ -2,7 +2,7 @@
 
 # -- Project information
 
-project = 'sedas docs'
+project = 'SEDAS documentation'
 copyright = '2024, Daniel Pojhan'
 author = 'Daniel Pojhan'
 

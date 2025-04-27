@@ -7,8 +7,8 @@ Table of Contents
 
 .. toctree::
    :maxdepth: 2
+   :hidden:
 
-   index
    user-manual
    theory
    technical
